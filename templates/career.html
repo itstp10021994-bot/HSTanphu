@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ career.name }} — Khám Phá Nghề{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="back-link">← Tất cả ngành nghề</a>
+
+<section class="career-header" style="--card-accent: {{ career.color }}">
+  <div class="career-icon career-icon-lg">{{ career.icon }}</div>
+  <div>
+    <h1>{{ career.name }}</h1>
+    <p>{{ career.description }}</p>
+  </div>
+</section>
+
+<section class="task-list">
+  <h2 class="section-label">Nhiệm vụ mô phỏng</h2>
+  {% for t in tasks %}
+  <a class="task-row" href="{{ url_for('task_detail', task_id=t.id) }}">
+    <div>
+      <h3>{{ t.title }}</h3>
+      <p>{{ t.story[:90] }}{% if t.story|length > 90 %}…{% endif %}</p>
+    </div>
+    <span class="task-row-status {{ 'done' if t.done else '' }}">
+      {{ 'Đã xong ✓' if t.done else 'Bắt đầu →' }}
+    </span>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}
