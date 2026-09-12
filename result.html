@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Hồ sơ năng lực — Khám Phá Nghề{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="back-link">← Tất cả ngành nghề</a>
+
+<section class="hero hero-compact">
+  <h1>Hồ sơ năng lực của bạn</h1>
+  <p class="hero-sub">
+    Dựa trên {{ completed_count }}/{{ total_tasks }} nhiệm vụ đã hoàn thành.
+    {% if completed_count < total_tasks %}
+      Thử thêm vài ngành nữa để kết quả chính xác hơn.
+    {% endif %}
+  </p>
+</section>
+
+{% if completed_count == 0 %}
+<p class="empty-note">Bạn chưa hoàn thành nhiệm vụ nào. Hãy quay lại và thử một ngành nghề trước.</p>
+{% else %}
+
+<section class="skill-panel">
+  <h2 class="section-label">Năng lực nổi bật</h2>
+  {% for s in skill_bars %}
+  <div class="skill-row">
+    <span class="skill-name">{{ s.name }}</span>
+    <div class="skill-bar-track">
+      <div class="skill-bar-fill" style="width: {{ s.pct }}%"></div>
+    </div>
+    <span class="skill-points">{{ s.points }}</span>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="match-panel">
+  <h2 class="section-label">Ngành nghề phù hợp nhất</h2>
+  {% for m in matches %}
+  <div class="match-card" style="--card-accent: {{ m.color }}">
+    <div class="career-icon">{{ m.icon }}</div>
+    <div class="match-info">
+      <h3>{{ m.name }}</h3>
+      <div class="skill-bar-track match-track">
+        <div class="skill-bar-fill" style="width: {{ m.match_pct }}%"></div>
+      </div>
+    </div>
+    <span class="badge {{ 'badge-done' if m.tried else 'badge-new' }}">
+      {{ 'Đã thử' if m.tried else 'Chưa thử' }}
+    </span>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}
