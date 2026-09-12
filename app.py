@@ -36,6 +36,18 @@ def asset_url(filename):
 
 app.jinja_env.globals["asset_url"] = asset_url
 
+
+@app.after_request
+def add_no_cache_headers(response):
+    """Chặn cache cho MỌI response (kể cả các trang HTML động), không chỉ
+    file CSS/JS tĩnh. Nếu không có dòng này, trình duyệt hoặc CDN của nơi
+    hosting (Render, v.v.) có thể tiếp tục hiển thị bản HTML CŨ sau khi đã
+    deploy code mới, khiến người dùng tưởng nhầm là code chưa cập nhật."""
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    return response
+
+
 CAREERS_BY_ID = {c["id"]: c for c in CAREERS}
 TASKS_BY_ID = {t["id"]: t for t in TASKS}
 SKILLS_BY_ID = {s["id"]: s for s in SKILLS}
