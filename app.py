@@ -10,7 +10,7 @@ import os
 import random
 from flask import Flask, render_template, session, jsonify, request, redirect, url_for
 
-from data import CAREERS, SKILLS, TASKS, CAREER_SKILL_PROFILE
+from data import CAREERS, SKILLS, TASKS, CAREER_SKILL_PROFILE, CLUSTERS
 
 app = Flask(__name__)
 app.secret_key = "doi-chuoi-nay-truoc-khi-trien-khai-that"  # TODO: đổi khi deploy
@@ -74,9 +74,20 @@ def index():
         c_tasks = tasks_for_career(c["id"])
         done = sum(1 for t in c_tasks if t["id"] in completed)
         careers_view.append({**c, "total_tasks": len(c_tasks), "done_tasks": done})
+
+    careers_by_cluster = {}
+    for c in careers_view:
+        careers_by_cluster.setdefault(c["cluster"], []).append(c)
+
+    clusters_view = [
+        {**cl, "careers": careers_by_cluster[cl["id"]]}
+        for cl in CLUSTERS
+        if cl["id"] in careers_by_cluster
+    ]
+
     return render_template(
         "index.html",
-        careers=careers_view,
+        clusters=clusters_view,
         has_progress=any(v > 0 for v in skill_points.values()),
     )
 
