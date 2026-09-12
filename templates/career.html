@@ -4,7 +4,10 @@
 <a href="{{ url_for('index') }}" class="back-link">← Tất cả ngành nghề</a>
 
 <section class="career-header" style="--card-accent: {{ career.color }}">
-  <div class="career-icon career-icon-lg">{{ career.icon }}</div>
+  <div class="career-icon-stage">
+    <span class="career-icon-glow"></span>
+    <div class="career-icon career-icon-lg">{{ career.icon }}</div>
+  </div>
   <div>
     <h1>{{ career.name }}</h1>
     <p>{{ career.description }}</p>
