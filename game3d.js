@@ -12,7 +12,6 @@
 let THREE = null;
 let GLTFLoader = null;
 
-const THREE_VERSION = "0.160.0";
 const CHARACTER_MODEL_URL =
   "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r160/examples/models/gltf/Soldier.glb";
 
@@ -134,8 +133,8 @@ export async function initGame3D({ containerId, careerId, accentColor, steps, su
   // ---- Bước 1: tải thư viện Three.js (có thể lỗi do mạng) ----
   try {
     const [threeMod, gltfMod] = await Promise.all([
-      import(`https://cdn.jsdelivr.net/npm/three@${THREE_VERSION}/build/three.module.js`),
-      import(`https://cdn.jsdelivr.net/npm/three@${THREE_VERSION}/examples/jsm/loaders/GLTFLoader.js`),
+      import("three"),
+      import("three/addons/loaders/GLTFLoader.js"),
     ]);
     THREE = threeMod;
     GLTFLoader = gltfMod.GLTFLoader;
