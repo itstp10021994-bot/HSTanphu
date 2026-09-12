@@ -53,6 +53,65 @@ CAREERS = [
             "thao tác, và tính kỷ luật để giữ đúng quy trình chế biến."
         ),
     },
+    {
+        "id": "teacher",
+        "name": "Giáo viên",
+        "icon": "📚",
+        "color": "#93C5FD",
+        "tagline": "Truyền đạt kiến thức và truyền cảm hứng học tập",
+        "description": (
+            "Giáo viên cần khả năng giao tiếp tốt để truyền đạt kiến thức dễ "
+            "hiểu, sự kiên nhẫn khi học sinh chưa nắm bài, và một chút sáng "
+            "tạo để tiết học không nhàm chán."
+        ),
+    },
+    {
+        "id": "civil",
+        "name": "Kỹ sư xây dựng",
+        "icon": "🏗️",
+        "color": "#FDBA74",
+        "tagline": "Biến bản vẽ thành công trình vững chắc",
+        "description": (
+            "Kỹ sư xây dựng phải tuân thủ nghiêm ngặt quy trình kỹ thuật — "
+            "sai một bước trong thi công móng có thể ảnh hưởng đến cả công "
+            "trình về sau."
+        ),
+    },
+    {
+        "id": "lawyer",
+        "name": "Luật sư",
+        "icon": "⚖️",
+        "color": "#C4B5FD",
+        "tagline": "Bảo vệ lẽ phải bằng lập luận chặt chẽ",
+        "description": (
+            "Luật sư cần tư duy logic để xây dựng lập luận, và khả năng "
+            "giao tiếp thuyết phục để trình bày trước toà và trao đổi với "
+            "thân chủ."
+        ),
+    },
+    {
+        "id": "pilot",
+        "name": "Phi công",
+        "icon": "✈️",
+        "color": "#7DD3FC",
+        "tagline": "Đưa hàng trăm sinh mạng đến nơi an toàn",
+        "description": (
+            "Phi công phải tuân thủ tuyệt đối quy trình kiểm tra trước khi "
+            "bay — không được bỏ sót hay đảo bước, vì an toàn luôn được đặt "
+            "lên hàng đầu."
+        ),
+    },
+    {
+        "id": "photographer",
+        "name": "Nhiếp ảnh gia",
+        "icon": "📷",
+        "color": "#F472B6",
+        "tagline": "Lưu giữ khoảnh khắc bằng con mắt sáng tạo",
+        "description": (
+            "Nhiếp ảnh gia kết hợp con mắt thẩm mỹ, sự khéo léo khi thao tác "
+            "thiết bị, và kỹ năng giao tiếp để hướng dẫn người được chụp."
+        ),
+    },
 ]
 
 # Trọng số năng lực yêu cầu của mỗi ngành (dùng để gợi ý mức độ phù hợp)
@@ -60,6 +119,11 @@ CAREER_SKILL_PROFILE = {
     "dev":    {"logic": 3, "hand": 0, "creative": 1, "patience": 2, "comms": 1},
     "doctor": {"logic": 2, "hand": 1, "creative": 0, "patience": 3, "comms": 2},
     "chef":   {"logic": 0, "hand": 2, "creative": 3, "patience": 2, "comms": 1},
+    "teacher":      {"logic": 1, "hand": 0, "creative": 1, "patience": 2, "comms": 3},
+    "civil":        {"logic": 3, "hand": 1, "creative": 0, "patience": 2, "comms": 0},
+    "lawyer":       {"logic": 3, "hand": 0, "creative": 1, "patience": 1, "comms": 3},
+    "pilot":        {"logic": 3, "hand": 0, "creative": 0, "patience": 3, "comms": 1},
+    "photographer": {"logic": 0, "hand": 1, "creative": 3, "patience": 1, "comms": 1},
 }
 
 # Mỗi nhiệm vụ là dạng "sequence": học sinh kéo-thả các bước về đúng thứ tự.
@@ -120,5 +184,95 @@ TASKS = [
             "Trang trí với hành lá, rau thơm trước khi phục vụ",
         ],
         "skill_weight": {"creative": 3, "hand": 2, "patience": 1},
+    },
+    {
+        "id": "teacher-lesson",
+        "career_id": "teacher",
+        "title": "Dạy một tiết Toán lớp 6",
+        "story": (
+            "Bạn có 45 phút để dạy học sinh lớp 6 về phân số. Hãy sắp xếp "
+            "đúng trình tự một tiết dạy hiệu quả."
+        ),
+        "steps": [
+            "Soạn giáo án và xác định mục tiêu bài học",
+            "Chuẩn bị đồ dùng dạy học trực quan",
+            "Ổn định lớp và kiểm tra bài cũ",
+            "Giảng bài theo giáo án đã chuẩn bị",
+            "Đặt câu hỏi để kiểm tra học sinh có hiểu bài không",
+            "Giao bài tập về nhà và tổng kết tiết học",
+        ],
+        "skill_weight": {"comms": 3, "patience": 2, "creative": 1},
+    },
+    {
+        "id": "civil-foundation",
+        "career_id": "civil",
+        "title": "Giám sát thi công móng nhà",
+        "story": (
+            "Một công trình nhà ở chuẩn bị đổ móng. Hãy sắp xếp đúng trình "
+            "tự thi công để đảm bảo móng nhà vững chắc."
+        ),
+        "steps": [
+            "Khảo sát địa chất khu đất",
+            "Thiết kế bản vẽ kết cấu móng",
+            "Đào đất theo đúng bản vẽ",
+            "Lắp đặt cốt thép móng",
+            "Đổ bê tông móng",
+            "Bảo dưỡng bê tông trước khi thi công tiếp",
+        ],
+        "skill_weight": {"logic": 3, "patience": 2, "hand": 1},
+    },
+    {
+        "id": "lawyer-case",
+        "career_id": "lawyer",
+        "title": "Chuẩn bị bào chữa cho một vụ kiện",
+        "story": (
+            "Một thân chủ nhờ bạn bào chữa trong một vụ tranh chấp hợp đồng. "
+            "Hãy sắp xếp đúng trình tự các bước chuẩn bị."
+        ),
+        "steps": [
+            "Tiếp nhận hồ sơ và tình tiết vụ việc từ thân chủ",
+            "Nghiên cứu các điều luật liên quan",
+            "Thu thập và rà soát chứng cứ",
+            "Soạn thảo luận cứ bào chữa",
+            "Trao đổi với thân chủ về chiến lược bào chữa",
+            "Trình bày luận cứ bào chữa tại phiên toà",
+        ],
+        "skill_weight": {"logic": 3, "comms": 3, "creative": 1},
+    },
+    {
+        "id": "pilot-preflight",
+        "career_id": "pilot",
+        "title": "Quy trình trước khi cất cánh",
+        "story": (
+            "Chuyến bay của bạn chuẩn bị khởi hành. Hãy sắp xếp đúng trình "
+            "tự các bước kiểm tra bắt buộc trước khi cất cánh."
+        ),
+        "steps": [
+            "Kiểm tra thời tiết và lộ trình bay",
+            "Kiểm tra tình trạng kỹ thuật máy bay",
+            "Xin phép đài kiểm soát không lưu",
+            "Hướng dẫn an toàn cho hành khách",
+            "Khởi động động cơ theo checklist",
+            "Cất cánh theo đường băng được chỉ định",
+        ],
+        "skill_weight": {"patience": 3, "logic": 3, "comms": 1},
+    },
+    {
+        "id": "photo-wedding",
+        "career_id": "photographer",
+        "title": "Chụp ảnh cưới ngoại cảnh",
+        "story": (
+            "Bạn nhận chụp bộ ảnh cưới ngoại cảnh cho một cặp đôi. Hãy sắp "
+            "xếp đúng trình tự một buổi chụp chuyên nghiệp."
+        ),
+        "steps": [
+            "Khảo sát địa điểm và điều kiện ánh sáng",
+            "Lên ý tưởng concept cho bộ ảnh",
+            "Chuẩn bị và kiểm tra thiết bị chụp",
+            "Hướng dẫn dáng chụp cho cô dâu chú rể",
+            "Chụp và kiểm tra ảnh ngay tại chỗ",
+            "Hậu kỳ chỉnh sửa ảnh trước khi bàn giao",
+        ],
+        "skill_weight": {"creative": 3, "comms": 1, "patience": 1},
     },
 ]

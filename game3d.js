@@ -38,7 +38,10 @@ function showFatalError(container, title, detail) {
 function buildRoom(careerId, accentColor) {
   const group = new THREE.Group();
 
-  const floorColor = { dev: 0x1b2035, doctor: 0x241a1c, chef: 0x241d13 }[careerId] || 0x1b1d33;
+  const floorColor = {
+    dev: 0x1b2035, doctor: 0x241a1c, chef: 0x241d13,
+    teacher: 0x1a2333, civil: 0x241f18, lawyer: 0x201a2e, pilot: 0x16232e, photographer: 0x2a1a24,
+  }[careerId] || 0x1b1d33;
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(ROOM_HALF * 2 + 2, ROOM_HALF * 2 + 2),
     new THREE.MeshStandardMaterial({ color: floorColor, roughness: 0.9 })
@@ -75,6 +78,23 @@ function buildRoom(careerId, accentColor) {
   } else if (careerId === "chef") {
     props.push({ size: [2, 0.9, 0.8], pos: [-2, 0.45, 3] });
     props.push({ size: [1.4, 0.8, 0.8], pos: [2.5, 0.4, -2.5] });
+  } else if (careerId === "teacher") {
+    props.push({ size: [2.6, 1.4, 0.1], pos: [0, 0.7, -4.4] }); // bảng đen
+    props.push({ size: [1.8, 0.8, 0.7], pos: [0, 0.4, -2.2] }); // bàn giáo viên
+  } else if (careerId === "civil") {
+    props.push({ size: [1.6, 0.5, 1.6], pos: [-3, 0.25, 2] }); // khối móng đang thi công
+    props.push({ size: [0.3, 1.6, 0.3], pos: [3, 0.8, -2] }); // cột thép
+  } else if (careerId === "lawyer") {
+    props.push({ size: [2.4, 1, 1.1], pos: [0, 0.5, -3] }); // bục toà
+    props.push({ size: [1.4, 0.8, 0.7], pos: [-3, 0.4, 2] }); // bàn hồ sơ
+  } else if (careerId === "pilot") {
+    props.push({ size: [2.6, 1, 1.4], pos: [0, 0.5, -3.5] }); // bảng điều khiển
+    props.push({ size: [0.5, 0.9, 0.5], pos: [-2.4, 0.45, -3] }); // ghế lái
+  } else if (careerId === "photographer") {
+    props.push({ size: [0.15, 1.6, 0.15], pos: [-3, 0.8, -2] }); // chân máy
+    props.push({ size: [1, 1.4, 0.08], pos: [2.5, 0.7, -3] }); // phông nền
+  } else {
+    props.push({ size: [1.6, 0.9, 0.8], pos: [-2, 0.45, 2] });
   }
   props.forEach(({ size, pos }) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), propMat);
