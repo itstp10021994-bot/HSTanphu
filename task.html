@@ -46,9 +46,20 @@
 </section>
 
 <script id="steps-data" type="application/json">{{ steps | tojson }}</script>
+<script>
+  // Lưới an toàn cuối cùng: bắt MỌI lỗi JS không mong muốn trên trang này
+  // và hiển thị ra màn hình thay vì để im lặng (script thường, KHÔNG phải
+  // module, nên luôn chạy được kể cả khi phần module bên dưới lỗi).
+  window.addEventListener("error", function (e) {
+    const c = document.getElementById("game3d-container");
+    if (c && !c.querySelector(".game3d-error")) {
+      c.innerHTML =
+        '<div class="game3d-error"><strong>Lỗi khi tải trang</strong><p>' +
+        (e.message || "Không rõ nguyên nhân") + "</p></div>";
+    }
+  });
+</script>
 <script type="module">
-  import { initGame3D } from "{{ url_for('static', filename='js/game3d.js') }}";
-
   const feedback = document.getElementById("feedback");
   const feedbackSummary = document.getElementById("feedback-summary");
   const feedbackEarned = document.getElementById("feedback-earned");
@@ -56,6 +67,16 @@
 
   function showLoadError(message) {
     gameContainer.innerHTML = `<div class="game3d-error"><strong>Không khởi động được mô phỏng 3D</strong><p>${message}</p></div>`;
+  }
+
+  let initGame3D;
+  try {
+    const mod = await import("{{ url_for('static', filename='js/game3d.js') }}");
+    initGame3D = mod.initGame3D;
+  } catch (err) {
+    console.error("Không tải được game3d.js:", err);
+    showLoadError("Không tải được file game3d.js (" + (err && err.message ? err.message : "lỗi mạng") + ").");
+    throw err;
   }
 
   try {
