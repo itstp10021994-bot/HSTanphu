@@ -1,34 +1,64 @@
 {% extends "base.html" %}
 {% block title %}Khám Phá Nghề — Chọn ngành để thử{% endblock %}
 {% block content %}
-<section class="hero">
-  <h1>Đừng chọn nghề bằng phỏng đoán.<br>Hãy thử trước.</h1>
+<section class="hero hero-compact">
+  <h1>Đừng chọn nghề bằng phỏng đoán. Hãy thử trước.</h1>
   <p class="hero-sub">
-    Mỗi ngành nghề dưới đây có một nhiệm vụ mô phỏng ngắn, dựng lại đúng
-    công việc thật. Hoàn thành để xem năng lực của bạn hợp với nghề nào.
+    Mỗi ngành có một nhiệm vụ mô phỏng ngắn, dựng lại đúng công việc thật.
+    Hoàn thành để xem năng lực của bạn hợp với nghề nào.
+    {% if has_progress %}
+    <a href="{{ url_for('result') }}" class="inline-link">Xem hồ sơ năng lực →</a>
+    {% endif %}
   </p>
-  {% if has_progress %}
-  <a href="{{ url_for('result') }}" class="btn btn-ghost">Xem hồ sơ năng lực của tôi →</a>
-  {% endif %}
 </section>
 
-<section class="career-grid">
-  {% for c in careers %}
-  <a class="career-card" href="{{ url_for('career_detail', career_id=c.id) }}"
-     style="--card-accent: {{ c.color }}">
-    <div class="career-icon">{{ c.icon }}</div>
-    <h2>{{ c.name }}</h2>
-    <p class="career-tagline">{{ c.tagline }}</p>
-    <div class="career-progress">
-      {% if c.done_tasks == c.total_tasks %}
-        <span class="badge badge-done">Đã hoàn thành</span>
-      {% elif c.done_tasks > 0 %}
-        <span class="badge">Đã làm {{ c.done_tasks }}/{{ c.total_tasks }}</span>
-      {% else %}
-        <span class="badge badge-new">Chưa thử</span>
-      {% endif %}
+<div class="explore-layout">
+  <nav class="cluster-tabs" id="cluster-tabs">
+    {% for cl in clusters %}
+    <button type="button" class="cluster-tab{% if loop.first %} active{% endif %}" data-cluster="{{ cl.id }}">
+      <span class="cluster-tab-icon">{{ cl.icon }}</span>
+      <span class="cluster-tab-name">{{ cl.name }}</span>
+      <span class="cluster-tab-count">{{ cl.careers|length }}</span>
+    </button>
+    {% endfor %}
+  </nav>
+
+  <div class="cluster-panels">
+    {% for cl in clusters %}
+    <div class="cluster-panel{% if loop.first %} active{% endif %}" data-cluster="{{ cl.id }}">
+      <div class="career-grid-compact">
+        {% for c in cl.careers %}
+        <a class="career-card-compact" href="{{ url_for('career_detail', career_id=c.id) }}"
+           style="--card-accent: {{ c.color }}">
+          <div class="career-icon-compact">{{ c.icon }}</div>
+          <div class="career-card-body">
+            <h3>{{ c.name }}</h3>
+            <p>{{ c.tagline }}</p>
+          </div>
+          {% if c.done_tasks == c.total_tasks %}
+            <span class="badge badge-done">✓</span>
+          {% elif c.done_tasks > 0 %}
+            <span class="badge">{{ c.done_tasks }}/{{ c.total_tasks }}</span>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
     </div>
-  </a>
-  {% endfor %}
-</section>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  (function () {
+    const tabs = document.querySelectorAll(".cluster-tab");
+    const panels = document.querySelectorAll(".cluster-panel");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.cluster;
+        tabs.forEach((t) => t.classList.toggle("active", t === tab));
+        panels.forEach((p) => p.classList.toggle("active", p.dataset.cluster === target));
+      });
+    });
+  })();
+</script>
 {% endblock %}
