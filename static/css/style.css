@@ -256,6 +256,95 @@ a { color: inherit; text-decoration: none; }
 }
 .feedback-actions { display: flex; gap: 12px; }
 
+/* ---------- 3D game (character-controlled) ---------- */
+.game-panel-3d { padding: clamp(10px, 3vw, 20px); }
+
+.game3d-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 70vh;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #0c0e1c;
+}
+.game3d-container canvas { display: block; width: 100%; height: 100%; }
+
+.hud3d {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+.hud-progress {
+  align-self: flex-start;
+  background: rgba(12, 14, 28, 0.72);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--text);
+}
+.hud-prompt {
+  align-self: center;
+  background: rgba(94, 234, 212, 0.15);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  max-width: 90%;
+}
+
+.hotspot-label-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hotspot-label {
+  position: absolute;
+  transform: translate(-9999px, -9999px);
+  background: rgba(12, 14, 28, 0.8);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-left: -50%;
+  margin-top: -32px;
+}
+.hotspot-label.done { display: none; }
+
+.mobile-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  gap: 16px;
+}
+.dpad { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.dpad-row { display: flex; gap: 4px; }
+.dpad button {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1.1rem;
+  touch-action: none;
+}
+.action-btn { min-width: 130px; }
+
+@media (min-width: 720px) {
+  .mobile-controls { display: none; }
+}
+
 /* ---------- Result page ---------- */
 .skill-panel, .match-panel { margin-bottom: 44px; }
 .skill-row {

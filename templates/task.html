@@ -7,34 +7,76 @@
   <span class="mission-eyebrow">{{ career.icon }} {{ career.name }}</span>
   <h1>{{ task.title }}</h1>
   <p class="mission-story">{{ task.story }}</p>
-  <p class="mission-hint">Kéo các thẻ bên dưới để sắp xếp lại theo đúng thứ tự thực hiện, từ đầu tiên đến cuối cùng.</p>
+  <p class="mission-hint">
+    Điều khiển nhân vật đi tới từng điểm sáng và thực hiện thao tác theo
+    đúng thứ tự quy trình. Máy tính: phím <strong>W A S D</strong> hoặc mũi tên
+    để di chuyển, phím <strong>E</strong> để thực hiện. Điện thoại: dùng nút
+    điều hướng bên dưới.
+  </p>
 </section>
 
-<section class="game-panel">
-  <ol id="step-list" class="step-list">
-    {% for s in steps %}
-    <li class="step-item" data-uid="{{ s.step_uid }}" data-correct="{{ s.correct_index }}">
-      <span class="step-handle" aria-hidden="true">⠿</span>
-      <span class="step-order-num"></span>
-      <span class="step-text">{{ s.text }}</span>
-    </li>
-    {% endfor %}
-  </ol>
+<section class="game-panel game-panel-3d">
+  <div id="game3d-container" class="game3d-container">
+    <div id="hud" class="hud3d">
+      <div class="hud-progress">Đã hoàn thành <span id="hud-count">0</span>/<span id="hud-total">0</span></div>
+      <div id="hud-prompt" class="hud-prompt" hidden></div>
+    </div>
+  </div>
 
-  <button id="submit-btn" class="btn btn-primary">Xác nhận thứ tự</button>
+  <div id="mobile-controls" class="mobile-controls">
+    <div class="dpad">
+      <button data-dir="up" aria-label="Lên">↑</button>
+      <div class="dpad-row">
+        <button data-dir="left" aria-label="Trái">←</button>
+        <button data-dir="down" aria-label="Xuống">↓</button>
+        <button data-dir="right" aria-label="Phải">→</button>
+      </div>
+    </div>
+    <button id="action-btn" class="btn btn-primary action-btn" hidden>Thực hiện</button>
+  </div>
 
   <div id="feedback" class="feedback" hidden>
     <p id="feedback-summary"></p>
     <div id="feedback-earned" class="earned-list"></div>
     <div class="feedback-actions">
-      <button id="retry-btn" class="btn btn-ghost">Thử lại</button>
+      <a href="{{ url_for('task_detail', task_id=task.id) }}" class="btn btn-ghost">Thử lại</a>
       <a href="{{ url_for('career_detail', career_id=career.id) }}" class="btn btn-primary">Quay lại ngành nghề</a>
     </div>
   </div>
 </section>
 
-<script>
-  window.TASK_SUBMIT_URL = "{{ url_for('submit_task', task_id=task.id) }}";
+<script id="steps-data" type="application/json">{{ steps | tojson }}</script>
+<script type="module">
+  import { initGame3D } from "{{ url_for('static', filename='js/game3d.js') }}";
+
+  const steps = JSON.parse(document.getElementById("steps-data").textContent);
+  const feedback = document.getElementById("feedback");
+  const feedbackSummary = document.getElementById("feedback-summary");
+  const feedbackEarned = document.getElementById("feedback-earned");
+
+  initGame3D({
+    containerId: "game3d-container",
+    careerId: "{{ career.id }}",
+    accentColor: "{{ career.color }}",
+    steps: steps,
+    submitUrl: "{{ url_for('submit_task', task_id=task.id) }}",
+    onSubmitted: (data) => {
+      if (data.error) {
+        alert("Có lỗi khi gửi kết quả, vui lòng thử lại.");
+        return;
+      }
+      feedbackSummary.textContent =
+        `Độ chính xác: ${data.accuracy}% (đúng vị trí ${data.correct_positions}/${data.total} bước).`;
+      feedbackEarned.innerHTML = "";
+      Object.entries(data.earned).forEach(([skill, pts]) => {
+        const pill = document.createElement("span");
+        pill.className = "earned-pill";
+        pill.textContent = `+${pts} ${skill}`;
+        feedbackEarned.appendChild(pill);
+      });
+      feedback.hidden = false;
+      feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    },
+  });
 </script>
-<script src="{{ url_for('static', filename='js/task.js') }}"></script>
 {% endblock %}
