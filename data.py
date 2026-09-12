@@ -126,8 +126,9 @@ CAREER_SKILL_PROFILE = {
     "photographer": {"logic": 0, "hand": 1, "creative": 3, "patience": 1, "comms": 1},
 }
 
-# Mỗi nhiệm vụ là dạng "sequence": học sinh kéo-thả các bước về đúng thứ tự.
-# "steps" liệt kê theo ĐÚNG thứ tự chuẩn; hệ thống sẽ tự xáo trộn khi hiển thị.
+# Mỗi nhiệm vụ là dạng "sequence": học sinh kéo-thả các thẻ (có icon minh
+# hoạ + mô tả) về đúng thứ tự. "steps" liệt kê theo ĐÚNG thứ tự chuẩn; hệ
+# thống sẽ tự xáo trộn khi hiển thị cho học sinh.
 TASKS = [
     {
         "id": "dev-debug",
@@ -139,12 +140,12 @@ TASKS = [
             "gỡ lỗi (debug) mà một lập trình viên sẽ thực hiện."
         ),
         "steps": [
-            "Đọc thông báo lỗi (error log) để xác định vị trí xảy ra sự cố",
-            "Tái hiện lại lỗi trên máy của mình để chắc chắn hiểu đúng vấn đề",
-            "Thu hẹp phạm vi bằng cách kiểm tra từng đoạn code liên quan",
-            "Đặt điểm dừng (breakpoint) để xem giá trị biến tại thời điểm lỗi",
-            "Sửa đoạn code gây lỗi",
-            "Chạy lại toàn bộ kiểm thử (test) để chắc chắn không phát sinh lỗi mới",
+            {"icon": "📋", "text": "Đọc thông báo lỗi (error log) để xác định vị trí xảy ra sự cố"},
+            {"icon": "💻", "text": "Tái hiện lại lỗi trên máy của mình để chắc chắn hiểu đúng vấn đề"},
+            {"icon": "🔍", "text": "Thu hẹp phạm vi bằng cách kiểm tra từng đoạn code liên quan"},
+            {"icon": "⏸️", "text": "Đặt điểm dừng (breakpoint) để xem giá trị biến tại thời điểm lỗi"},
+            {"icon": "🛠️", "text": "Sửa đoạn code gây lỗi"},
+            {"icon": "✅", "text": "Chạy lại toàn bộ kiểm thử (test) để chắc chắn không phát sinh lỗi mới"},
         ],
         "skill_weight": {"logic": 3, "patience": 2, "creative": 1},
     },
@@ -158,12 +159,12 @@ TASKS = [
             "các bước sơ cứu ban đầu."
         ),
         "steps": [
-            "Kiểm tra phản ứng và gọi hỗ trợ ngay lập tức",
-            "Kiểm tra đường thở, khai thông nếu bị tắc nghẽn",
-            "Kiểm tra nhịp thở trong 10 giây",
-            "Bắt đầu ép tim ngoài lồng ngực (30 lần ép)",
-            "Hà hơi thổi ngạt (2 lần) rồi tiếp tục chu kỳ ép tim",
-            "Gắn máy khử rung tim (AED) ngay khi có sẵn",
+            {"icon": "📞", "text": "Kiểm tra phản ứng và gọi hỗ trợ ngay lập tức"},
+            {"icon": "🌬️", "text": "Kiểm tra đường thở, khai thông nếu bị tắc nghẽn"},
+            {"icon": "⏱️", "text": "Kiểm tra nhịp thở trong 10 giây"},
+            {"icon": "💓", "text": "Bắt đầu ép tim ngoài lồng ngực (30 lần ép)"},
+            {"icon": "💨", "text": "Hà hơi thổi ngạt (2 lần) rồi tiếp tục chu kỳ ép tim"},
+            {"icon": "⚡", "text": "Gắn máy khử rung tim (AED) ngay khi có sẵn"},
         ],
         "skill_weight": {"patience": 3, "comms": 2, "logic": 2},
     },
@@ -176,12 +177,12 @@ TASKS = [
             "các công đoạn để cho ra một tô phở chuẩn vị."
         ),
         "steps": [
-            "Ninh xương bò lấy nước dùng trong nhiều giờ",
-            "Nêm nếm nước dùng với gia vị và thảo mộc đặc trưng",
-            "Trụng bánh phở qua nước sôi",
-            "Xếp thịt bò tái thái mỏng lên trên bánh phở",
-            "Chan nước dùng nóng để làm chín thịt",
-            "Trang trí với hành lá, rau thơm trước khi phục vụ",
+            {"icon": "🥘", "text": "Ninh xương bò lấy nước dùng trong nhiều giờ"},
+            {"icon": "🧂", "text": "Nêm nếm nước dùng với gia vị và thảo mộc đặc trưng"},
+            {"icon": "🍜", "text": "Trụng bánh phở qua nước sôi"},
+            {"icon": "🥩", "text": "Xếp thịt bò tái thái mỏng lên trên bánh phở"},
+            {"icon": "♨️", "text": "Chan nước dùng nóng để làm chín thịt"},
+            {"icon": "🌿", "text": "Trang trí với hành lá, rau thơm trước khi phục vụ"},
         ],
         "skill_weight": {"creative": 3, "hand": 2, "patience": 1},
     },
@@ -194,12 +195,12 @@ TASKS = [
             "đúng trình tự một tiết dạy hiệu quả."
         ),
         "steps": [
-            "Soạn giáo án và xác định mục tiêu bài học",
-            "Chuẩn bị đồ dùng dạy học trực quan",
-            "Ổn định lớp và kiểm tra bài cũ",
-            "Giảng bài theo giáo án đã chuẩn bị",
-            "Đặt câu hỏi để kiểm tra học sinh có hiểu bài không",
-            "Giao bài tập về nhà và tổng kết tiết học",
+            {"icon": "📝", "text": "Soạn giáo án và xác định mục tiêu bài học"},
+            {"icon": "📐", "text": "Chuẩn bị đồ dùng dạy học trực quan"},
+            {"icon": "🔔", "text": "Ổn định lớp và kiểm tra bài cũ"},
+            {"icon": "🗣️", "text": "Giảng bài theo giáo án đã chuẩn bị"},
+            {"icon": "❓", "text": "Đặt câu hỏi để kiểm tra học sinh có hiểu bài không"},
+            {"icon": "📚", "text": "Giao bài tập về nhà và tổng kết tiết học"},
         ],
         "skill_weight": {"comms": 3, "patience": 2, "creative": 1},
     },
@@ -212,12 +213,12 @@ TASKS = [
             "tự thi công để đảm bảo móng nhà vững chắc."
         ),
         "steps": [
-            "Khảo sát địa chất khu đất",
-            "Thiết kế bản vẽ kết cấu móng",
-            "Đào đất theo đúng bản vẽ",
-            "Lắp đặt cốt thép móng",
-            "Đổ bê tông móng",
-            "Bảo dưỡng bê tông trước khi thi công tiếp",
+            {"icon": "🧭", "text": "Khảo sát địa chất khu đất"},
+            {"icon": "📐", "text": "Thiết kế bản vẽ kết cấu móng"},
+            {"icon": "⛏️", "text": "Đào đất theo đúng bản vẽ"},
+            {"icon": "🏗️", "text": "Lắp đặt cốt thép móng"},
+            {"icon": "🧱", "text": "Đổ bê tông móng"},
+            {"icon": "💧", "text": "Bảo dưỡng bê tông trước khi thi công tiếp"},
         ],
         "skill_weight": {"logic": 3, "patience": 2, "hand": 1},
     },
@@ -230,12 +231,12 @@ TASKS = [
             "Hãy sắp xếp đúng trình tự các bước chuẩn bị."
         ),
         "steps": [
-            "Tiếp nhận hồ sơ và tình tiết vụ việc từ thân chủ",
-            "Nghiên cứu các điều luật liên quan",
-            "Thu thập và rà soát chứng cứ",
-            "Soạn thảo luận cứ bào chữa",
-            "Trao đổi với thân chủ về chiến lược bào chữa",
-            "Trình bày luận cứ bào chữa tại phiên toà",
+            {"icon": "📁", "text": "Tiếp nhận hồ sơ và tình tiết vụ việc từ thân chủ"},
+            {"icon": "📖", "text": "Nghiên cứu các điều luật liên quan"},
+            {"icon": "🔎", "text": "Thu thập và rà soát chứng cứ"},
+            {"icon": "✍️", "text": "Soạn thảo luận cứ bào chữa"},
+            {"icon": "🗣️", "text": "Trao đổi với thân chủ về chiến lược bào chữa"},
+            {"icon": "⚖️", "text": "Trình bày luận cứ bào chữa tại phiên toà"},
         ],
         "skill_weight": {"logic": 3, "comms": 3, "creative": 1},
     },
@@ -248,12 +249,12 @@ TASKS = [
             "tự các bước kiểm tra bắt buộc trước khi cất cánh."
         ),
         "steps": [
-            "Kiểm tra thời tiết và lộ trình bay",
-            "Kiểm tra tình trạng kỹ thuật máy bay",
-            "Xin phép đài kiểm soát không lưu",
-            "Hướng dẫn an toàn cho hành khách",
-            "Khởi động động cơ theo checklist",
-            "Cất cánh theo đường băng được chỉ định",
+            {"icon": "🌦️", "text": "Kiểm tra thời tiết và lộ trình bay"},
+            {"icon": "🔧", "text": "Kiểm tra tình trạng kỹ thuật máy bay"},
+            {"icon": "📡", "text": "Xin phép đài kiểm soát không lưu"},
+            {"icon": "🦺", "text": "Hướng dẫn an toàn cho hành khách"},
+            {"icon": "⚙️", "text": "Khởi động động cơ theo checklist"},
+            {"icon": "🛫", "text": "Cất cánh theo đường băng được chỉ định"},
         ],
         "skill_weight": {"patience": 3, "logic": 3, "comms": 1},
     },
@@ -266,12 +267,12 @@ TASKS = [
             "xếp đúng trình tự một buổi chụp chuyên nghiệp."
         ),
         "steps": [
-            "Khảo sát địa điểm và điều kiện ánh sáng",
-            "Lên ý tưởng concept cho bộ ảnh",
-            "Chuẩn bị và kiểm tra thiết bị chụp",
-            "Hướng dẫn dáng chụp cho cô dâu chú rể",
-            "Chụp và kiểm tra ảnh ngay tại chỗ",
-            "Hậu kỳ chỉnh sửa ảnh trước khi bàn giao",
+            {"icon": "🌅", "text": "Khảo sát địa điểm và điều kiện ánh sáng"},
+            {"icon": "💡", "text": "Lên ý tưởng concept cho bộ ảnh"},
+            {"icon": "📷", "text": "Chuẩn bị và kiểm tra thiết bị chụp"},
+            {"icon": "🤝", "text": "Hướng dẫn dáng chụp cho cô dâu chú rể"},
+            {"icon": "📸", "text": "Chụp và kiểm tra ảnh ngay tại chỗ"},
+            {"icon": "🖥️", "text": "Hậu kỳ chỉnh sửa ảnh trước khi bàn giao"},
         ],
         "skill_weight": {"creative": 3, "comms": 1, "patience": 1},
     },

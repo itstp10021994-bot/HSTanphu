@@ -204,42 +204,54 @@ a { color: inherit; text-decoration: none; }
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   touch-action: none;
 }
 .step-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background: var(--surface-2);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 16px 18px;
   user-select: none;
   cursor: grab;
   position: relative;
   will-change: transform;
+  transition: border-color 0.15s;
 }
+.step-item:hover { border-color: var(--card-accent, var(--accent)); }
 .step-item.dragging {
   cursor: grabbing;
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.4);
   z-index: 5;
 }
-.step-handle { color: var(--text-dim); font-size: 1.1rem; }
+.step-handle { color: var(--text-dim); font-size: 1.2rem; margin-left: auto; padding-left: 8px; }
 .step-order-num {
-  min-width: 24px;
-  height: 24px;
+  min-width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--bg);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-family: var(--font-head);
   color: var(--text-dim);
+  flex-shrink: 0;
 }
-.step-text { font-size: 0.98rem; }
+.step-icon {
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  width: 1.9rem;
+  text-align: center;
+}
+.step-text { font-size: 1rem; line-height: 1.4; }
+
+.btn-block { display: flex; width: 100%; justify-content: center; font-size: 1.02rem; padding: 14px 22px; }
 
 .feedback {
   margin-top: 20px;
@@ -256,101 +268,10 @@ a { color: inherit; text-decoration: none; }
 }
 .feedback-actions { display: flex; gap: 12px; }
 
-.game3d-error {
-  padding: 24px;
-  color: var(--text);
-  font-size: 0.92rem;
-}
-.game3d-error strong { color: var(--danger); display: block; margin-bottom: 8px; }
-.game3d-error-hint { color: var(--text-dim); font-size: 0.85rem; }
-
-/* ---------- 3D game (character-controlled) ---------- */
-.game-panel-3d { padding: clamp(10px, 3vw, 20px); }
-
-.game3d-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 70vh;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: #0c0e1c;
-}
-.game3d-container canvas { display: block; width: 100%; height: 100%; }
-
-.hud3d {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  pointer-events: none;
-  font-size: 0.9rem;
-}
-.hud-progress {
-  align-self: flex-start;
-  background: rgba(12, 14, 28, 0.72);
-  border: 1px solid var(--border);
-  padding: 6px 14px;
-  border-radius: 999px;
-  color: var(--text);
-}
-.hud-prompt {
-  align-self: center;
-  background: rgba(94, 234, 212, 0.15);
-  border: 1px solid var(--accent);
-  color: var(--text);
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  max-width: 90%;
-}
-
-.hotspot-label-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.hotspot-label {
-  position: absolute;
-  transform: translate(-9999px, -9999px);
-  background: rgba(12, 14, 28, 0.8);
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  font-size: 0.78rem;
-  padding: 3px 9px;
-  border-radius: 999px;
-  white-space: nowrap;
-  margin-left: -50%;
-  margin-top: -32px;
-}
-.hotspot-label.done { display: none; }
-
-.mobile-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-  gap: 16px;
-}
-.dpad { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.dpad-row { display: flex; gap: 4px; }
-.dpad button {
-  width: 46px;
-  height: 46px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  color: var(--text);
-  font-size: 1.1rem;
-  touch-action: none;
-}
-.action-btn { min-width: 130px; }
-
-@media (min-width: 720px) {
-  .mobile-controls { display: none; }
+@media (max-width: 480px) {
+  .step-item { padding: 14px; gap: 10px; }
+  .step-icon { font-size: 1.4rem; }
+  .step-text { font-size: 0.92rem; }
 }
 
 /* ---------- Result page ---------- */

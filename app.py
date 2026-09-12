@@ -6,6 +6,7 @@ Backend: Flask (Python) — 100% miễn phí, không cần dịch vụ trả ph�
 Tiến trình của học sinh được lưu trong session (cookie phía trình duyệt),
 nên KHÔNG cần đăng nhập, KHÔNG cần cơ sở dữ liệu cho bản MVP này.
 """
+import os
 import random
 from flask import Flask, render_template, session, jsonify, request, redirect, url_for
 
@@ -13,6 +14,27 @@ from data import CAREERS, SKILLS, TASKS, CAREER_SKILL_PROFILE
 
 app = Flask(__name__)
 app.secret_key = "doi-chuoi-nay-truoc-khi-trien-khai-that"  # TODO: đổi khi deploy
+
+# Tắt cache mặc định của Flask cho file tĩnh — quan trọng vì mỗi lần deploy
+# bản mới, nếu không có dòng này, trình duyệt (hoặc CDN của nơi hosting) có
+# thể tiếp tục phục vụ file .js/.css CŨ đã lưu trong cache, khiến người dùng
+# thấy lỗi dù code trên server đã đúng.
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
+
+
+def asset_url(filename):
+    """url_for('static', ...) nhưng luôn kèm ?v=<thời gian sửa file cuối>
+    để trình duyệt/CDN tự tải lại bản mới mỗi khi file thay đổi, thay vì
+    dùng nhầm bản cache cũ."""
+    path = os.path.join(app.static_folder, filename)
+    try:
+        version = int(os.path.getmtime(path))
+    except OSError:
+        version = 0
+    return url_for("static", filename=filename, v=version)
+
+
+app.jinja_env.globals["asset_url"] = asset_url
 
 CAREERS_BY_ID = {c["id"]: c for c in CAREERS}
 TASKS_BY_ID = {t["id"]: t for t in TASKS}
@@ -67,11 +89,16 @@ def task_detail(task_id):
     career = CAREERS_BY_ID[task["career_id"]]
 
     # Xáo trộn thứ tự hiển thị, giữ id gốc để chấm điểm
-    shuffled = list(enumerate(task["steps"]))  # (correct_index, text)
+    shuffled = list(enumerate(task["steps"]))  # (correct_index, {"icon","text"})
     random.shuffle(shuffled)
     display_steps = [
-        {"step_uid": idx, "correct_index": ci, "text": text}
-        for idx, (ci, text) in enumerate(shuffled)
+        {
+            "step_uid": idx,
+            "correct_index": ci,
+            "text": step["text"],
+            "icon": step.get("icon", "📌"),
+        }
+        for idx, (ci, step) in enumerate(shuffled)
     ]
 
     return render_template(

@@ -32,13 +32,14 @@ career-sim/
 │   └── result.html       # Hồ sơ năng lực + gợi ý ngành
 └── static/
     ├── css/style.css
-    └── js/task.js        # Kéo-thả bằng Pointer Events (không dùng thư viện ngoài)
+    └── js/dragdrop.js    # Kéo-thả bằng Pointer Events (không dùng thư viện ngoài, không cần CDN)
 ```
 
 ## Cách hoạt động
 
-- Mỗi nhiệm vụ là một quy trình gồm nhiều bước bị xáo trộn; học sinh kéo-thả
-  để sắp lại đúng thứ tự.
+- Mỗi nhiệm vụ là một quy trình gồm nhiều bước (mỗi bước có 1 icon minh
+  hoạ + mô tả ngắn) bị xáo trộn; học sinh kéo-thả các thẻ để sắp lại đúng
+  thứ tự — không cần đọc nhiều chữ, nhìn icon là đoán được hành động.
 - Độ chính xác (số bước đúng vị trí / tổng số bước) được quy đổi thành điểm
   cho từng năng lực theo trọng số khai báo trong `data.py`.
 - Tiến trình lưu trong **session cookie của trình duyệt** — không cần đăng
@@ -46,6 +47,9 @@ career-sim/
 - Trang "Hồ sơ năng lực" so khớp vector năng lực của học sinh với hồ sơ yêu
   cầu năng lực của từng ngành (`CAREER_SKILL_PROFILE`) để xếp hạng độ phù hợp
   — kể cả những ngành học sinh **chưa** thử.
+- Toàn bộ giao diện chạy bằng HTML/CSS/JS thuần, không gọi CDN ngoài nào —
+  nên không bao giờ bị lỗi do mạng chặn tài nguyên bên thứ ba (đã từng gặp
+  vấn đề này ở bản dùng nhân vật 3D Three.js trước đây).
 
 ## Thêm ngành nghề / nhiệm vụ mới
 
@@ -53,8 +57,9 @@ Chỉ cần sửa `data.py`:
 1. Thêm một mục vào `CAREERS`.
 2. Thêm trọng số năng lực yêu cầu vào `CAREER_SKILL_PROFILE`.
 3. Thêm một hoặc nhiều nhiệm vụ vào `TASKS`, với `career_id` trỏ đúng ngành
-   vừa thêm, danh sách `steps` theo **đúng thứ tự chuẩn**, và `skill_weight`
-   là năng lực nhiệm vụ đó rèn luyện.
+   vừa thêm, danh sách `steps` (mỗi bước là `{"icon": "...", "text": "..."}`)
+   theo **đúng thứ tự chuẩn**, và `skill_weight` là năng lực nhiệm vụ đó
+   rèn luyện. Icon chỉ cần là 1 emoji phù hợp với nội dung bước đó.
 
 Không cần sửa gì ở `app.py` hay giao diện — mọi thứ tự động hiển thị.
 
