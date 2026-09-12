@@ -3,9 +3,14 @@
 // đúng thứ tự quy trình nghề nghiệp. Dùng Three.js (miễn phí, CDN, không
 // cần cài đặt) + model nhân vật rigged miễn phí có sẵn trong kho mẫu chính
 // thức của Three.js.
+//
+// QUAN TRỌNG: thư viện Three.js được tải bằng dynamic import() bên trong
+// initGame3D() (không phải import tĩnh ở đầu file). Lý do: nếu tải thất
+// bại (mạng chặn CDN, v.v.), lỗi có thể được bắt (try/catch) và hiển thị
+// rõ ràng cho người dùng thay vì để màn hình đen im lặng không rõ nguyên nhân.
 
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
+let THREE = null;
+let GLTFLoader = null;
 
 const CHARACTER_MODEL_URL =
   "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r160/examples/models/gltf/Soldier.glb";
@@ -18,10 +23,24 @@ const MOVE_SPEED = 4.2; // đơn vị/giây
 const INTERACT_RADIUS = 2.0;
 const ROOM_HALF = 9;
 
+function showFatalError(container, title, detail) {
+  container.innerHTML = "";
+  const box = document.createElement("div");
+  box.className = "game3d-error";
+  box.innerHTML =
+    `<strong>${title}</strong><p>${detail}</p>` +
+    `<p class="game3d-error-hint">Thử tải lại trang. Nếu vẫn lỗi, có thể mạng của bạn đang chặn ` +
+    `cdn.jsdelivr.net — hãy thử mạng khác hoặc báo cho người quản trị mạng mở CDN này.</p>`;
+  container.appendChild(box);
+}
+
 function buildRoom(careerId, accentColor) {
   const group = new THREE.Group();
 
-  const floorColor = { dev: 0x1b2035, doctor: 0x241a1c, chef: 0x241d13 }[careerId] || 0x1b1d33;
+  const floorColor = {
+    dev: 0x1b2035, doctor: 0x241a1c, chef: 0x241d13,
+    teacher: 0x1a2333, civil: 0x241f18, lawyer: 0x201a2e, pilot: 0x16232e, photographer: 0x2a1a24,
+  }[careerId] || 0x1b1d33;
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(ROOM_HALF * 2 + 2, ROOM_HALF * 2 + 2),
     new THREE.MeshStandardMaterial({ color: floorColor, roughness: 0.9 })
@@ -50,14 +69,31 @@ function buildRoom(careerId, accentColor) {
   const propMat = new THREE.MeshStandardMaterial({ color: accentColor, roughness: 0.6 });
   const props = [];
   if (careerId === "dev") {
-    props.push({ size: [2.2, 1.1, 1], pos: [-3, 0.55, -2] }); // bàn làm việc
-    props.push({ size: [1.2, 0.9, 0.1], pos: [-3, 1.3, -2.4] }); // màn hình
+    props.push({ size: [2.2, 1.1, 1], pos: [-3, 0.55, -2] });
+    props.push({ size: [1.2, 0.9, 0.1], pos: [-3, 1.3, -2.4] });
   } else if (careerId === "doctor") {
-    props.push({ size: [2, 0.6, 1], pos: [3, 0.3, 2] }); // giường bệnh
-    props.push({ size: [0.6, 1, 0.6], pos: [4.2, 0.5, 1.2] }); // xe đẩy
+    props.push({ size: [2, 0.6, 1], pos: [3, 0.3, 2] });
+    props.push({ size: [0.6, 1, 0.6], pos: [4.2, 0.5, 1.2] });
   } else if (careerId === "chef") {
-    props.push({ size: [2, 0.9, 0.8], pos: [-2, 0.45, 3] }); // bếp
-    props.push({ size: [1.4, 0.8, 0.8], pos: [2.5, 0.4, -2.5] }); // bàn bếp
+    props.push({ size: [2, 0.9, 0.8], pos: [-2, 0.45, 3] });
+    props.push({ size: [1.4, 0.8, 0.8], pos: [2.5, 0.4, -2.5] });
+  } else if (careerId === "teacher") {
+    props.push({ size: [2.6, 1.4, 0.1], pos: [0, 0.7, -4.4] }); // bảng đen
+    props.push({ size: [1.8, 0.8, 0.7], pos: [0, 0.4, -2.2] }); // bàn giáo viên
+  } else if (careerId === "civil") {
+    props.push({ size: [1.6, 0.5, 1.6], pos: [-3, 0.25, 2] }); // khối móng đang thi công
+    props.push({ size: [0.3, 1.6, 0.3], pos: [3, 0.8, -2] }); // cột thép
+  } else if (careerId === "lawyer") {
+    props.push({ size: [2.4, 1, 1.1], pos: [0, 0.5, -3] }); // bục toà
+    props.push({ size: [1.4, 0.8, 0.7], pos: [-3, 0.4, 2] }); // bàn hồ sơ
+  } else if (careerId === "pilot") {
+    props.push({ size: [2.6, 1, 1.4], pos: [0, 0.5, -3.5] }); // bảng điều khiển
+    props.push({ size: [0.5, 0.9, 0.5], pos: [-2.4, 0.45, -3] }); // ghế lái
+  } else if (careerId === "photographer") {
+    props.push({ size: [0.15, 1.6, 0.15], pos: [-3, 0.8, -2] }); // chân máy
+    props.push({ size: [1, 1.4, 0.08], pos: [2.5, 0.7, -3] }); // phông nền
+  } else {
+    props.push({ size: [1.6, 0.9, 0.8], pos: [-2, 0.45, 2] });
   }
   props.forEach(({ size, pos }) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), propMat);
@@ -75,8 +111,43 @@ function makeHotspotLabel(text) {
   return el;
 }
 
-export function initGame3D({ containerId, careerId, accentColor, steps, submitUrl, onSubmitted }) {
+function buildFallbackCharacter() {
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(
+    new THREE.CapsuleGeometry(0.4, 0.9, 4, 8),
+    new THREE.MeshStandardMaterial({ color: 0xdfe7ff })
+  );
+  body.position.y = 0.85;
+  const head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.28, 16, 16),
+    new THREE.MeshStandardMaterial({ color: 0xffd8b0 })
+  );
+  head.position.y = 1.55;
+  g.add(body, head);
+  return g;
+}
+
+export async function initGame3D({ containerId, careerId, accentColor, steps, submitUrl, onSubmitted }) {
   const container = document.getElementById(containerId);
+
+  // ---- Bước 1: tải thư viện Three.js (có thể lỗi do mạng) ----
+  try {
+    const [threeMod, gltfMod] = await Promise.all([
+      import("three"),
+      import("three/addons/loaders/GLTFLoader.js"),
+    ]);
+    THREE = threeMod;
+    GLTFLoader = gltfMod.GLTFLoader;
+  } catch (err) {
+    console.error("Không tải được thư viện Three.js:", err);
+    showFatalError(
+      container,
+      "Không tải được thư viện đồ hoạ 3D",
+      "Trình duyệt không tải được thư viện cần thiết từ mạng (cdn.jsdelivr.net)."
+    );
+    return;
+  }
+
   const hudCount = document.getElementById("hud-count");
   const hudTotal = document.getElementById("hud-total");
   const hudPrompt = document.getElementById("hud-prompt");
@@ -89,10 +160,23 @@ export function initGame3D({ containerId, careerId, accentColor, steps, submitUr
 
   const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+  } catch (err) {
+    showFatalError(
+      container,
+      "Trình duyệt không hỗ trợ WebGL",
+      "Thiết bị hoặc trình duyệt này không bật được đồ hoạ 3D (WebGL). Hãy thử trình duyệt khác (Chrome/Edge bản mới)."
+    );
+    return;
+  }
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.shadowMap.enabled = true;
   container.appendChild(renderer.domElement);
+
+  const hud = document.getElementById("hud");
+  if (hud && hud.parentElement !== container) container.appendChild(hud);
 
   function resize() {
     const w = container.clientWidth;
@@ -129,13 +213,7 @@ export function initGame3D({ containerId, careerId, accentColor, steps, submitUr
     const label = makeHotspotLabel(step.text);
     labelLayer.appendChild(label);
 
-    return {
-      step,
-      position: new THREE.Vector3(x, 0, z),
-      mesh: ring,
-      label,
-      done: false,
-    };
+    return { step, position: new THREE.Vector3(x, 0, z), mesh: ring, label, done: false };
   });
 
   // ---- Nhân vật ----
@@ -154,48 +232,43 @@ export function initGame3D({ containerId, careerId, accentColor, steps, submitUr
     currentAction = next;
   }
 
-  function buildFallbackCharacter() {
-    const g = new THREE.Group();
-    const body = new THREE.Mesh(
-      new THREE.CapsuleGeometry(0.4, 0.9, 4, 8),
-      new THREE.MeshStandardMaterial({ color: 0xdfe7ff })
-    );
-    body.position.y = 0.85;
-    const head = new THREE.Mesh(
-      new THREE.SphereGeometry(0.28, 16, 16),
-      new THREE.MeshStandardMaterial({ color: 0xffd8b0 })
-    );
-    head.position.y = 1.55;
-    g.add(body, head);
-    return g;
-  }
+  if (GLTFLoader) {
+    try {
+      const loader = new GLTFLoader();
+      loader.load(
+        CHARACTER_MODEL_URL,
+        (gltf) => {
+          scene.remove(character);
+          character = gltf.scene;
+          character.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+          scene.add(character);
 
-  const loader = new GLTFLoader();
-  loader.load(
-    CHARACTER_MODEL_URL,
-    (gltf) => {
-      scene.remove(character);
-      character = gltf.scene;
-      character.scale.setScalar(1.0);
-      character.traverse((o) => { if (o.isMesh) o.castShadow = true; });
-      scene.add(character);
-
-      mixer = new THREE.AnimationMixer(character);
-      const clips = gltf.animations || [];
-      const findClip = (kw) => clips.find((c) => c.name.toLowerCase().includes(kw));
-      const idleClip = findClip("idle") || clips[0];
-      const walkClip = findClip("walk") || clips[1] || clips[0];
-      if (idleClip) idleAction = mixer.clipAction(idleClip);
-      if (walkClip) walkAction = mixer.clipAction(walkClip);
-      if (idleAction) fadeToAction(idleAction);
-    },
-    undefined,
-    () => {
-      // Không tải được model (mạng chặn CDN, v.v.) — dùng nhân vật đơn giản dựng bằng khối hình
+          mixer = new THREE.AnimationMixer(character);
+          const clips = gltf.animations || [];
+          const findClip = (kw) => clips.find((c) => c.name.toLowerCase().includes(kw));
+          const idleClip = findClip("idle") || clips[0];
+          const walkClip = findClip("walk") || clips[1] || clips[0];
+          if (idleClip) idleAction = mixer.clipAction(idleClip);
+          if (walkClip) walkAction = mixer.clipAction(walkClip);
+          if (idleAction) fadeToAction(idleAction);
+        },
+        undefined,
+        (err) => {
+          console.warn("Không tải được model nhân vật, dùng nhân vật đơn giản thay thế:", err);
+          scene.remove(character);
+          character = buildFallbackCharacter();
+          scene.add(character);
+        }
+      );
+    } catch (err) {
+      console.warn("Lỗi GLTFLoader, dùng nhân vật đơn giản thay thế:", err);
       character = buildFallbackCharacter();
       scene.add(character);
     }
-  );
+  } else {
+    character = buildFallbackCharacter();
+    scene.add(character);
+  }
 
   // ---- Điều khiển ----
   const input = { up: false, down: false, left: false, right: false };
@@ -300,13 +373,11 @@ export function initGame3D({ containerId, careerId, accentColor, steps, submitUr
 
     if (mixer) mixer.update(dt);
 
-    // Camera theo sau nhân vật (góc nhìn thứ ba)
-    const camOffset = new THREE.Vector3(0, 5.5, 8).applyAxisAngle(new THREE.Vector3(0, 1, 0), 0);
+    const camOffset = new THREE.Vector3(0, 5.5, 8);
     const desiredCamPos = character.position.clone().add(camOffset);
     camera.position.lerp(desiredCamPos, 0.08);
     camera.lookAt(character.position.clone().add(new THREE.Vector3(0, 1.2, 0)));
 
-    // Cập nhật vị trí nhãn hotspot trên màn hình 2D
     hotspots.forEach((h) => {
       const p = h.position.clone().add(new THREE.Vector3(0, 1.4, 0));
       p.project(camera);
