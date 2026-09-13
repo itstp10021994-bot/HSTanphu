@@ -118,7 +118,27 @@ def career_detail(career_id):
     c_tasks = [
         {**t, "done": t["id"] in completed} for t in tasks_for_career(career_id)
     ]
-    return render_template("career.html", career=career, tasks=c_tasks)
+
+    # Năng lực cần có cho ngành này — dựa trên CAREER_SKILL_PROFILE (0-3),
+    # quy đổi ra % để vẽ thanh trong cột thống kê bên phải.
+    profile = CAREER_SKILL_PROFILE.get(career_id, {})
+    max_weight = max(profile.values()) if profile else 1
+    skill_bars = sorted(
+        (
+            {
+                "name": s["name"],
+                "weight": profile.get(s["id"], 0),
+                "pct": round(profile.get(s["id"], 0) / max_weight * 100) if max_weight else 0,
+            }
+            for s in SKILLS
+        ),
+        key=lambda x: x["weight"],
+        reverse=True,
+    )
+
+    return render_template(
+        "career.html", career=career, tasks=c_tasks, skill_bars=skill_bars
+    )
 
 
 @app.route("/task/<task_id>")
