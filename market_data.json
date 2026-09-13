@@ -1,0 +1,58 @@
+{
+  "dev": {
+    "text": "Công nghệ thông tin được dự báo là nhóm ngành tăng lương mạnh nhất năm 2026 (khoảng 15–20%) và vẫn thuộc nhóm nhu cầu tuyển dụng cao.",
+    "source_name": "NIC Global — Báo cáo Lương Việt Nam 2026",
+    "source_url": "https://nicvn.com/vi/bao-cao-luong-viet-nam-2026-toan-canh-thi-truong-nhan-su",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "doctor": {
+    "text": "Bác sĩ làm việc tại cơ sở y tế tư nhân có thu nhập phổ biến khoảng 15–40 triệu đồng/tháng, có thể cao hơn nhiều với bác sĩ chuyên khoa giàu kinh nghiệm.",
+    "source_name": "Ngon Career — Tổng hợp lương ngành y tế",
+    "source_url": "https://ngoncareer.com/muc-luong/luong-y-te-moi-nhat/",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "teacher": {
+    "text": "Theo bảng lương viên chức hiện hành, thu nhập giáo viên dao động khoảng 4,9–16 triệu đồng/tháng tuỳ bậc và thâm niên (chưa gồm phụ cấp).",
+    "source_name": "Báo Đầu Tư",
+    "source_url": "https://baodautu.vn/muc-luong-giao-vien-nam-2025-duoc-quy-dinh-ra-sao-d242044.html",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "civil": {
+    "text": "Kỹ sư xây dựng có mức lương trung bình khoảng 16,5 triệu đồng/tháng trên thị trường, dao động 13–20 triệu tuỳ kinh nghiệm.",
+    "source_name": "Công cụ tra cứu mức lương TopCV",
+    "source_url": "https://www.topcv.vn/cap-nhat-muc-luong-ky-su-xay-dung-moi-nhat",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "lawyer": {
+    "text": "Luật sư mới hành nghề thường khởi điểm 10–15 triệu đồng/tháng; sau khoảng 5 năm kinh nghiệm, thu nhập có thể đạt 25–50 triệu đồng/tháng.",
+    "source_name": "JobOKO",
+    "source_url": "https://vn.joboko.com/blog/luong-cua-luat-su-bao-nhieu-tien-1-thang-nwi3653",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "nurse": {
+    "text": "Điều dưỡng mới ra trường thường khởi điểm khoảng 4,3–5,5 triệu đồng/tháng ở khu vực nhà nước, hoặc 8–20 triệu đồng/tháng nếu làm tại bệnh viện tư nhân.",
+    "source_name": "Dịch Vụ Y Dược",
+    "source_url": "https://dichvuyduoc.net/muc-luong-cua-dieu-duong-la-bao-nhieu/",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "tourguide": {
+    "text": "Hướng dẫn viên du lịch có mức lương trung bình khoảng 10,8 triệu đồng/tháng, nhưng thu nhập thực tế biến động lớn theo loại tour, hoa hồng và tiền tip.",
+    "source_name": "TopCV",
+    "source_url": "https://www.topcv.vn/huong-dan-vien-du-lich-la-gi",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  },
+  "accountant": {
+    "text": "Kế toán – tài chính – kiểm toán là một trong các nhóm ngành được dự báo tăng lương mạnh (khoảng 8–10%) trong năm 2026.",
+    "source_name": "NIC Global — Báo cáo Lương Việt Nam 2026",
+    "source_url": "https://nicvn.com/vi/bao-cao-luong-viet-nam-2026-toan-canh-thi-truong-nhan-su",
+    "last_checked": "2026-09-13",
+    "status": "ok"
+  }
+}

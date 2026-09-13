@@ -51,6 +51,29 @@ career-sim/
   nên không bao giờ bị lỗi do mạng chặn tài nguyên bên thứ ba (đã từng gặp
   vấn đề này ở bản dùng nhân vật 3D Three.js trước đây).
 
+## Thông tin thị trường (lương/nhu cầu) — tự động kiểm tra định kỳ
+
+`market_data.json` chứa thông tin lương/nhu cầu tuyển dụng tham khảo cho
+một số ngành, kèm trích dẫn nguồn. File này **tách riêng khỏi `data.py`**
+để có thể cập nhật độc lập, không cần sửa code.
+
+- **Tự động (GitHub Actions)**: workflow `.github/workflows/update-market-data.yml`
+  chạy vào ngày 1 mỗi tháng, gọi `scripts/update_market_data.py` để kiểm
+  tra xem các con số đã trích dẫn có còn xuất hiện trên trang nguồn không.
+  - Nếu vẫn khớp → chỉ cập nhật ngày kiểm tra gần nhất (`last_checked`).
+  - Nếu không còn khớp con số nào → đánh dấu `status: "needs_review"` và
+    trang web sẽ tự hiển thị cảnh báo ⚠️ cho đến khi ai đó xem lại và viết
+    lại câu mô tả cho đúng.
+  - **Script KHÔNG tự viết lại câu mô tả** — chỉ phát hiện thay đổi và báo
+    hiệu, để tránh rủi ro tự động hiển thị thông tin sai/bịa cho học sinh.
+  - Có thể chạy tay bất cứ lúc nào: tab **Actions** trên GitHub > chọn
+    workflow "Kiểm tra định kỳ dữ liệu thị trường lương" > **Run workflow**.
+- **Thủ công**: khi thấy cảnh báo "cần xem lại", mở file `market_data.json`
+  trên GitHub, sửa lại `text` cho đúng số liệu mới, đổi `status` về `"ok"`,
+  commit — Render sẽ tự deploy lại.
+- Thêm ngành mới vào hệ thống này: thêm 1 mục vào `market_data.json` với
+  key là `career_id`, gồm `text`, `source_name`, `source_url`.
+
 ## Thêm ngành nghề / nhiệm vụ mới
 
 Chỉ cần sửa `data.py`:

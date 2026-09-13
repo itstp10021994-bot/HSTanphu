@@ -22,6 +22,9 @@ CLUSTERS = [
     {"id": "nghethuat", "name": "Nghệ thuật & Sáng tạo", "icon": "🎨"},
     {"id": "dichvu", "name": "Dịch vụ & Ẩm thực", "icon": "🍳"},
     {"id": "vantai", "name": "Giao thông & Vận tải", "icon": "✈️"},
+    {"id": "kinhdoanh", "name": "Kinh doanh & Tài chính", "icon": "💰"},
+    {"id": "khoahoc", "name": "Khoa học & Nghiên cứu", "icon": "🔬"},
+    {"id": "nongnghiep", "name": "Nông nghiệp & Môi trường", "icon": "🌱"},
 ]
 
 SKILLS = [
@@ -219,6 +222,126 @@ CAREERS = [
             "hành trình, cần vốn hiểu biết rộng và kỹ năng giao tiếp tốt."
         ),
     },
+    {
+        "id": "cybersecurity",
+        "cluster": "cntt",
+        "name": "Chuyên viên an ninh mạng",
+        "icon": "🔐",
+        "color": "#38BDF8",
+        "tagline": "Bảo vệ hệ thống khỏi những cuộc tấn công vô hình",
+        "description": (
+            "Chuyên viên an ninh mạng phát hiện lỗ hổng và bảo vệ hệ "
+            "thống, dữ liệu của tổ chức khỏi các cuộc tấn công mạng."
+        ),
+    },
+    {
+        "id": "pharmacist",
+        "cluster": "yte",
+        "name": "Dược sĩ",
+        "icon": "💊",
+        "color": "#4ADE80",
+        "tagline": "Đảm bảo mỗi viên thuốc đến đúng người, đúng liều",
+        "description": (
+            "Dược sĩ tư vấn và cấp phát thuốc đúng chỉ định, giúp người "
+            "bệnh sử dụng thuốc an toàn và hiệu quả."
+        ),
+    },
+    {
+        "id": "electrical",
+        "cluster": "kythuat",
+        "name": "Kỹ sư điện",
+        "icon": "🔌",
+        "color": "#FACC15",
+        "tagline": "Đưa dòng điện an toàn đến từng công trình",
+        "description": (
+            "Kỹ sư điện thiết kế và lắp đặt hệ thống điện cho công trình, "
+            "đảm bảo an toàn và đúng tiêu chuẩn kỹ thuật."
+        ),
+    },
+    {
+        "id": "actor",
+        "cluster": "nghethuat",
+        "name": "Diễn viên",
+        "icon": "🎭",
+        "color": "#FB7185",
+        "tagline": "Hoá thân vào nhân vật để kể chuyện bằng cảm xúc",
+        "description": (
+            "Diễn viên truyền tải câu chuyện và cảm xúc nhân vật đến khán "
+            "giả thông qua biểu cảm, giọng nói và hành động."
+        ),
+    },
+    {
+        "id": "hotelmanager",
+        "cluster": "dichvu",
+        "name": "Quản lý khách sạn",
+        "icon": "🏨",
+        "color": "#2DD4BF",
+        "tagline": "Mang lại trải nghiệm lưu trú hoàn hảo cho từng vị khách",
+        "description": (
+            "Quản lý khách sạn điều phối toàn bộ hoạt động để đảm bảo "
+            "khách hàng có trải nghiệm lưu trú tốt nhất."
+        ),
+    },
+    {
+        "id": "captain",
+        "cluster": "vantai",
+        "name": "Thuyền trưởng",
+        "icon": "🚢",
+        "color": "#0EA5E9",
+        "tagline": "Chỉ huy con tàu vượt qua mọi vùng biển",
+        "description": (
+            "Thuyền trưởng chịu trách nhiệm điều khiển tàu và đảm bảo an "
+            "toàn cho toàn bộ thuyền viên, hàng hoá trên tàu."
+        ),
+    },
+    {
+        "id": "marketing",
+        "cluster": "kinhdoanh",
+        "name": "Chuyên viên Marketing",
+        "icon": "📣",
+        "color": "#F97316",
+        "tagline": "Đưa sản phẩm đến đúng người, đúng thời điểm",
+        "description": (
+            "Chuyên viên marketing xây dựng chiến lược quảng bá để sản "
+            "phẩm hoặc thương hiệu tiếp cận đúng khách hàng mục tiêu."
+        ),
+    },
+    {
+        "id": "accountant",
+        "cluster": "kinhdoanh",
+        "name": "Kế toán viên",
+        "icon": "🧾",
+        "color": "#A3E635",
+        "tagline": "Giữ cho từng con số của doanh nghiệp luôn chính xác",
+        "description": (
+            "Kế toán viên ghi chép, kiểm soát và báo cáo tình hình tài "
+            "chính, giúp doanh nghiệp hoạt động minh bạch, đúng quy định."
+        ),
+    },
+    {
+        "id": "scientist",
+        "cluster": "khoahoc",
+        "name": "Nhà nghiên cứu khoa học",
+        "icon": "🔬",
+        "color": "#818CF8",
+        "tagline": "Đi tìm câu trả lời cho những câu hỏi chưa ai giải được",
+        "description": (
+            "Nhà nghiên cứu khoa học thực hiện thí nghiệm, phân tích dữ "
+            "liệu để tìm ra tri thức mới, đóng góp cho khoa học."
+        ),
+    },
+    {
+        "id": "agriculture",
+        "cluster": "nongnghiep",
+        "name": "Kỹ sư nông nghiệp",
+        "icon": "🌾",
+        "color": "#65A30D",
+        "tagline": "Ứng dụng khoa học để cây trồng cho năng suất tốt hơn",
+        "description": (
+            "Kỹ sư nông nghiệp nghiên cứu và áp dụng kỹ thuật canh tác để "
+            "nâng cao năng suất, chất lượng cây trồng bền vững."
+        ),
+    },
 ]
 
 # Trọng số năng lực yêu cầu của mỗi ngành (dùng để gợi ý mức độ phù hợp)
@@ -238,6 +361,16 @@ CAREER_SKILL_PROFILE = {
     "police":     {"logic": 3, "hand": 0, "creative": 1, "patience": 2, "comms": 2},
     "musician":   {"logic": 0, "hand": 1, "creative": 3, "patience": 2, "comms": 1},
     "tourguide":  {"logic": 0, "hand": 0, "creative": 1, "patience": 2, "comms": 3},
+    "cybersecurity": {"logic": 3, "hand": 0, "creative": 1, "patience": 2, "comms": 1},
+    "pharmacist":    {"logic": 2, "hand": 1, "creative": 0, "patience": 3, "comms": 2},
+    "electrical":    {"logic": 3, "hand": 2, "creative": 0, "patience": 2, "comms": 0},
+    "actor":         {"logic": 0, "hand": 0, "creative": 3, "patience": 2, "comms": 2},
+    "hotelmanager":  {"logic": 1, "hand": 0, "creative": 1, "patience": 2, "comms": 3},
+    "captain":       {"logic": 2, "hand": 0, "creative": 0, "patience": 3, "comms": 2},
+    "marketing":     {"logic": 1, "hand": 0, "creative": 3, "patience": 1, "comms": 2},
+    "accountant":    {"logic": 3, "hand": 0, "creative": 0, "patience": 3, "comms": 1},
+    "scientist":     {"logic": 3, "hand": 1, "creative": 2, "patience": 3, "comms": 1},
+    "agriculture":   {"logic": 2, "hand": 2, "creative": 1, "patience": 3, "comms": 1},
 }
 
 # Mỗi nhiệm vụ là dạng "sequence": học sinh kéo-thả các thẻ (có icon minh
@@ -516,5 +649,185 @@ TASKS = [
             {"icon": "👋", "text": "Tổng kết chuyến đi và tiễn khách"},
         ],
         "skill_weight": {"comms": 3, "patience": 2, "creative": 1},
+    },
+    {
+        "id": "cybersecurity-incident",
+        "career_id": "cybersecurity",
+        "title": "Xử lý một cuộc tấn công mạng vào hệ thống công ty",
+        "story": (
+            "Hệ thống công ty bạn vừa bị phát hiện có dấu hiệu bị xâm "
+            "nhập. Hãy sắp xếp đúng quy trình xử lý sự cố an ninh mạng."
+        ),
+        "steps": [
+            {"icon": "🚨", "text": "Xác nhận và phân loại mức độ nghiêm trọng của sự cố"},
+            {"icon": "🔌", "text": "Cô lập hệ thống bị ảnh hưởng để ngăn lây lan"},
+            {"icon": "🔍", "text": "Điều tra nguồn gốc và cách thức tấn công"},
+            {"icon": "🛡️", "text": "Vá lỗ hổng bảo mật đã bị khai thác"},
+            {"icon": "💾", "text": "Khôi phục dữ liệu và hệ thống từ bản sao lưu"},
+            {"icon": "📄", "text": "Viết báo cáo sự cố và đề xuất biện pháp phòng ngừa"},
+        ],
+        "skill_weight": {"logic": 3, "patience": 2, "comms": 1},
+    },
+    {
+        "id": "pharmacist-dispense",
+        "career_id": "pharmacist",
+        "title": "Cấp phát thuốc theo đơn tại nhà thuốc",
+        "story": (
+            "Một khách hàng mang đơn thuốc của bác sĩ đến nhà thuốc. Hãy "
+            "sắp xếp đúng quy trình cấp phát thuốc an toàn."
+        ),
+        "steps": [
+            {"icon": "📋", "text": "Kiểm tra tính hợp lệ của đơn thuốc"},
+            {"icon": "🔎", "text": "Đối chiếu thuốc với tiền sử dị ứng của khách hàng"},
+            {"icon": "📦", "text": "Lấy đúng thuốc, đúng hàm lượng theo đơn"},
+            {"icon": "🧮", "text": "Tính đúng liều lượng và số lượng cần cấp"},
+            {"icon": "🗣️", "text": "Hướng dẫn khách hàng cách dùng thuốc"},
+            {"icon": "🧾", "text": "Ghi chép lại vào hệ thống quản lý nhà thuốc"},
+        ],
+        "skill_weight": {"patience": 3, "logic": 2, "comms": 2},
+    },
+    {
+        "id": "electrical-install",
+        "career_id": "electrical",
+        "title": "Lắp đặt hệ thống điện cho một căn hộ mới",
+        "story": (
+            "Một căn hộ mới xây cần lắp đặt toàn bộ hệ thống điện. Hãy "
+            "sắp xếp đúng quy trình thi công."
+        ),
+        "steps": [
+            {"icon": "📐", "text": "Đọc bản vẽ thiết kế hệ thống điện"},
+            {"icon": "🧯", "text": "Ngắt nguồn điện tổng để đảm bảo an toàn thi công"},
+            {"icon": "🔧", "text": "Đi dây điện âm tường theo đúng sơ đồ"},
+            {"icon": "💡", "text": "Lắp đặt ổ cắm, công tắc và đèn"},
+            {"icon": "⚡", "text": "Đấu nối vào tủ điện tổng và bật thử nguồn"},
+            {"icon": "✅", "text": "Kiểm tra an toàn toàn bộ hệ thống trước khi bàn giao"},
+        ],
+        "skill_weight": {"logic": 3, "hand": 2, "patience": 1},
+    },
+    {
+        "id": "actor-scene",
+        "career_id": "actor",
+        "title": "Chuẩn bị cho một cảnh quay phim",
+        "story": (
+            "Bạn được giao một cảnh quay quan trọng trong phim. Hãy sắp "
+            "xếp đúng quy trình chuẩn bị của diễn viên."
+        ),
+        "steps": [
+            {"icon": "📖", "text": "Đọc và phân tích kịch bản, hiểu tâm lý nhân vật"},
+            {"icon": "🗣️", "text": "Học thuộc lời thoại của cảnh quay"},
+            {"icon": "💇", "text": "Hoá trang và mặc trang phục nhân vật"},
+            {"icon": "🎬", "text": "Tập diễn cùng đạo diễn trước khi quay chính thức"},
+            {"icon": "🎥", "text": "Diễn xuất cảnh quay theo chỉ đạo của đạo diễn"},
+            {"icon": "🔁", "text": "Diễn lại nếu đạo diễn yêu cầu quay thêm (retake)"},
+        ],
+        "skill_weight": {"creative": 3, "comms": 2, "patience": 1},
+    },
+    {
+        "id": "hotelmanager-complaint",
+        "career_id": "hotelmanager",
+        "title": "Xử lý tình huống khách hàng phàn nàn về phòng",
+        "story": (
+            "Một khách hàng phàn nàn phòng của họ chưa được dọn sạch khi "
+            "nhận phòng. Hãy sắp xếp đúng quy trình xử lý."
+        ),
+        "steps": [
+            {"icon": "👂", "text": "Lắng nghe và ghi nhận phàn nàn của khách hàng"},
+            {"icon": "🙏", "text": "Xin lỗi khách hàng vì trải nghiệm không tốt"},
+            {"icon": "🧹", "text": "Điều phối nhân viên dọn phòng xử lý ngay lập tức"},
+            {"icon": "🛎️", "text": "Sắp xếp phòng tạm thời hoặc ưu đãi cho khách trong lúc chờ"},
+            {"icon": "✅", "text": "Xác nhận lại với khách khi vấn đề đã được giải quyết"},
+            {"icon": "📝", "text": "Ghi nhận sự việc để cải thiện quy trình dọn phòng"},
+        ],
+        "skill_weight": {"comms": 3, "patience": 2, "creative": 1},
+    },
+    {
+        "id": "captain-departure",
+        "career_id": "captain",
+        "title": "Chuẩn bị cho tàu rời cảng",
+        "story": (
+            "Con tàu của bạn chuẩn bị rời cảng cho một chuyến hải trình "
+            "dài. Hãy sắp xếp đúng quy trình chuẩn bị."
+        ),
+        "steps": [
+            {"icon": "🌦️", "text": "Kiểm tra dự báo thời tiết và hải trình"},
+            {"icon": "🔧", "text": "Kiểm tra tình trạng kỹ thuật của tàu"},
+            {"icon": "📦", "text": "Giám sát việc xếp hàng hoá lên tàu"},
+            {"icon": "👥", "text": "Họp phổ biến nhiệm vụ cho thuyền viên"},
+            {"icon": "📡", "text": "Xin phép cảng vụ cho tàu rời cảng"},
+            {"icon": "⚓", "text": "Chỉ huy tàu rời cảng theo đúng luồng lạch"},
+        ],
+        "skill_weight": {"patience": 3, "logic": 2, "comms": 1},
+    },
+    {
+        "id": "marketing-campaign",
+        "career_id": "marketing",
+        "title": "Lên chiến dịch quảng bá sản phẩm mới",
+        "story": (
+            "Công ty bạn chuẩn bị ra mắt một sản phẩm mới. Hãy sắp xếp "
+            "đúng quy trình lên chiến dịch marketing."
+        ),
+        "steps": [
+            {"icon": "🎯", "text": "Xác định khách hàng mục tiêu của sản phẩm"},
+            {"icon": "📊", "text": "Phân tích đối thủ cạnh tranh trên thị trường"},
+            {"icon": "💡", "text": "Lên ý tưởng thông điệp và nội dung truyền thông"},
+            {"icon": "📅", "text": "Lập kế hoạch triển khai trên các kênh truyền thông"},
+            {"icon": "🚀", "text": "Triển khai chiến dịch và theo dõi hiệu quả"},
+            {"icon": "📈", "text": "Đánh giá kết quả và điều chỉnh chiến lược"},
+        ],
+        "skill_weight": {"creative": 3, "comms": 2, "logic": 1},
+    },
+    {
+        "id": "accountant-report",
+        "career_id": "accountant",
+        "title": "Lập báo cáo tài chính cuối tháng",
+        "story": (
+            "Cuối tháng, bạn cần tổng hợp và lập báo cáo tài chính cho "
+            "công ty. Hãy sắp xếp đúng quy trình thực hiện."
+        ),
+        "steps": [
+            {"icon": "🧾", "text": "Thu thập toàn bộ hoá đơn, chứng từ trong tháng"},
+            {"icon": "🗂️", "text": "Phân loại chứng từ theo từng khoản mục"},
+            {"icon": "⌨️", "text": "Nhập liệu vào sổ sách kế toán"},
+            {"icon": "🔍", "text": "Đối chiếu số liệu với ngân hàng và kho"},
+            {"icon": "📊", "text": "Lập báo cáo tài chính tổng hợp"},
+            {"icon": "📤", "text": "Trình báo cáo cho ban giám đốc phê duyệt"},
+        ],
+        "skill_weight": {"logic": 3, "patience": 3, "comms": 1},
+    },
+    {
+        "id": "scientist-experiment",
+        "career_id": "scientist",
+        "title": "Thực hiện một thí nghiệm khoa học",
+        "story": (
+            "Bạn đang nghiên cứu hiệu quả của một loại phân bón mới đối "
+            "với cây trồng. Hãy sắp xếp đúng quy trình thí nghiệm."
+        ),
+        "steps": [
+            {"icon": "❓", "text": "Đặt câu hỏi nghiên cứu và giả thuyết"},
+            {"icon": "📝", "text": "Thiết kế quy trình thí nghiệm đối chứng"},
+            {"icon": "🧪", "text": "Chuẩn bị mẫu vật và dụng cụ thí nghiệm"},
+            {"icon": "🔬", "text": "Tiến hành thí nghiệm và ghi nhận dữ liệu"},
+            {"icon": "📊", "text": "Phân tích số liệu thu được"},
+            {"icon": "📄", "text": "Viết báo cáo kết luận nghiên cứu"},
+        ],
+        "skill_weight": {"logic": 3, "patience": 3, "creative": 1},
+    },
+    {
+        "id": "agriculture-pest",
+        "career_id": "agriculture",
+        "title": "Xử lý một vườn cây bị sâu bệnh",
+        "story": (
+            "Một vườn cây ăn quả đang bị sâu bệnh tấn công. Hãy sắp xếp "
+            "đúng quy trình xử lý của kỹ sư nông nghiệp."
+        ),
+        "steps": [
+            {"icon": "🔍", "text": "Khảo sát vườn để xác định loại sâu bệnh"},
+            {"icon": "🧪", "text": "Lấy mẫu phân tích trong phòng thí nghiệm"},
+            {"icon": "📋", "text": "Lập phác đồ xử lý phù hợp"},
+            {"icon": "🌿", "text": "Hướng dẫn nông dân phun thuốc/xử lý đúng cách"},
+            {"icon": "👀", "text": "Theo dõi tình trạng cây sau xử lý"},
+            {"icon": "📈", "text": "Đánh giá hiệu quả và đề xuất phòng ngừa lâu dài"},
+        ],
+        "skill_weight": {"patience": 3, "logic": 2, "hand": 1},
     },
 ]

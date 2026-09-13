@@ -6,6 +6,7 @@ Backend: Flask (Python) — 100% miễn phí, không cần dịch vụ trả ph�
 Tiến trình của học sinh được lưu trong session (cookie phía trình duyệt),
 nên KHÔNG cần đăng nhập, KHÔNG cần cơ sở dữ liệu cho bản MVP này.
 """
+import json
 import os
 import random
 from flask import Flask, render_template, session, jsonify, request, redirect, url_for
@@ -15,10 +16,21 @@ from data import CAREERS, SKILLS, TASKS, CAREER_SKILL_PROFILE, CLUSTERS
 app = Flask(__name__)
 app.secret_key = "doi-chuoi-nay-truoc-khi-trien-khai-that"  # TODO: đổi khi deploy
 
-# Tắt cache mặc định của Flask cho file tĩnh — quan trọng vì mỗi lần deploy
-# bản mới, nếu không có dòng này, trình duyệt (hoặc CDN của nơi hosting) có
-# thể tiếp tục phục vụ file .js/.css CŨ đã lưu trong cache, khiến người dùng
-# thấy lỗi dù code trên server đã đúng.
+MARKET_DATA_PATH = os.path.join(os.path.dirname(__file__), "market_data.json")
+
+
+def load_market_data():
+    """Đọc market_data.json (thông tin lương/nhu cầu theo ngành, có trích
+    dẫn nguồn). File này được cập nhật ĐỊNH KỲ TỰ ĐỘNG bởi một workflow
+    GitHub Actions riêng (xem scripts/update_market_data.py) — không phải
+    hardcode trong data.py — nên có thể thay đổi mà không cần sửa code."""
+    try:
+        with open(MARKET_DATA_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 
 
@@ -51,6 +63,11 @@ def add_no_cache_headers(response):
 CAREERS_BY_ID = {c["id"]: c for c in CAREERS}
 TASKS_BY_ID = {t["id"]: t for t in TASKS}
 SKILLS_BY_ID = {s["id"]: s for s in SKILLS}
+
+_market_data = load_market_data()
+for _cid, _note in _market_data.items():
+    if _cid in CAREERS_BY_ID:
+        CAREERS_BY_ID[_cid]["market_note"] = _note
 
 
 def get_progress():
