@@ -14,6 +14,25 @@
   </div>
 </section>
 
+{% if career.market_note %}
+<section class="market-note{{ ' market-note-stale' if career.market_note.status == 'needs_review' else '' }}">
+  <span class="market-note-icon">{{ '⚠️' if career.market_note.status == 'needs_review' else '📊' }}</span>
+  <div>
+    <p class="market-note-text">{{ career.market_note.text }}</p>
+    <a class="market-note-source" href="{{ career.market_note.source_url }}" target="_blank" rel="noopener">
+      Nguồn: {{ career.market_note.source_name }} ↗
+    </a>
+    {% if career.market_note.status == 'needs_review' %}
+    <p class="market-note-warning">Hệ thống phát hiện nguồn có thể đã thay đổi — số liệu bên dưới đang chờ người kiểm duyệt xác nhận lại.</p>
+    {% endif %}
+    <p class="market-note-disclaimer">
+      Số liệu chỉ mang tính tham khảo, có thể thay đổi theo thời gian và khu vực.
+      {% if career.market_note.last_checked %}Kiểm tra lần cuối: {{ career.market_note.last_checked }}.{% endif %}
+    </p>
+  </div>
+</section>
+{% endif %}
+
 <section class="task-list">
   <h2 class="section-label">Nhiệm vụ mô phỏng</h2>
   {% for t in tasks %}
