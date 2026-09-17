@@ -16,16 +16,14 @@ from data import CAREERS, SKILLS, TASKS, CAREER_SKILL_PROFILE, CLUSTERS
 app = Flask(__name__)
 app.secret_key = "doi-chuoi-nay-truoc-khi-trien-khai-that"  # TODO: đổi khi deploy
 
-MARKET_DATA_PATH = os.path.join(os.path.dirname(__file__), "market_data.json")
-
-
-def load_market_data():
-    """Đọc market_data.json (thông tin lương/nhu cầu theo ngành, có trích
-    dẫn nguồn). File này được cập nhật ĐỊNH KỲ TỰ ĐỘNG bởi một workflow
-    GitHub Actions riêng (xem scripts/update_market_data.py) — không phải
-    hardcode trong data.py — nên có thể thay đổi mà không cần sửa code."""
+def load_json_data(filename):
+    """Đọc 1 file JSON dữ liệu 'động' (market_data.json, study_data.json,
+    automation_data.json) — tách riêng khỏi data.py để có thể cập nhật độc
+    lập, không cần sửa code. Các file này được kiểm tra ĐỊNH KỲ TỰ ĐỘNG bởi
+    workflow GitHub Actions (xem scripts/update_dynamic_data.py)."""
+    path = os.path.join(os.path.dirname(__file__), filename)
     try:
-        with open(MARKET_DATA_PATH, encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             return json.load(f)
     except (OSError, json.JSONDecodeError):
         return {}
@@ -64,10 +62,15 @@ CAREERS_BY_ID = {c["id"]: c for c in CAREERS}
 TASKS_BY_ID = {t["id"]: t for t in TASKS}
 SKILLS_BY_ID = {s["id"]: s for s in SKILLS}
 
-_market_data = load_market_data()
-for _cid, _note in _market_data.items():
-    if _cid in CAREERS_BY_ID:
-        CAREERS_BY_ID[_cid]["market_note"] = _note
+_DYNAMIC_FIELDS = {
+    "market_data.json": "market_note",
+    "study_data.json": "study_path",
+    "automation_data.json": "automation_note",
+}
+for _filename, _field in _DYNAMIC_FIELDS.items():
+    for _cid, _entry in load_json_data(_filename).items():
+        if _cid in CAREERS_BY_ID:
+            CAREERS_BY_ID[_cid][_field] = _entry
 
 
 def get_progress():
@@ -109,21 +112,13 @@ def index():
     )
 
 
-@app.route("/career/<career_id>")
-def career_detail(career_id):
-    career = CAREERS_BY_ID.get(career_id)
-    if not career:
-        return redirect(url_for("index"))
-    _, completed = get_progress()
-    c_tasks = [
-        {**t, "done": t["id"] in completed} for t in tasks_for_career(career_id)
-    ]
-
-    # Năng lực cần có cho ngành này — dựa trên CAREER_SKILL_PROFILE (0-3),
-    # quy đổi ra % để vẽ thanh trong cột thống kê bên phải.
+def compute_skill_bars(career_id):
+    """Năng lực cần có cho 1 ngành — dựa trên CAREER_SKILL_PROFILE (0-3),
+    quy đổi ra % để vẽ thanh. Dùng chung cho trang chi tiết ngành và trang
+    so sánh."""
     profile = CAREER_SKILL_PROFILE.get(career_id, {})
     max_weight = max(profile.values()) if profile else 1
-    skill_bars = sorted(
+    return sorted(
         (
             {
                 "name": s["name"],
@@ -136,9 +131,34 @@ def career_detail(career_id):
         reverse=True,
     )
 
+
+@app.route("/career/<career_id>")
+def career_detail(career_id):
+    career = CAREERS_BY_ID.get(career_id)
+    if not career:
+        return redirect(url_for("index"))
+    _, completed = get_progress()
+    c_tasks = [
+        {**t, "done": t["id"] in completed} for t in tasks_for_career(career_id)
+    ]
+    skill_bars = compute_skill_bars(career_id)
+
     return render_template(
         "career.html", career=career, tasks=c_tasks, skill_bars=skill_bars
     )
+
+
+@app.route("/compare")
+def compare():
+    ids = [cid for cid in request.args.get("ids", "").split(",") if cid]
+    ids = ids[:3]  # tối đa 3 ngành mỗi lần so sánh
+    items = []
+    for cid in ids:
+        career = CAREERS_BY_ID.get(cid)
+        if career:
+            items.append({"career": career, "skill_bars": compute_skill_bars(cid)})
+
+    return render_template("compare.html", items=items, all_careers=CAREERS)
 
 
 @app.route("/task/<task_id>")

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}So sánh ngành nghề — Khám Phá Nghề{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="back-link">← Tất cả ngành nghề</a>
+
+<section class="hero hero-compact">
+  <h1>So sánh ngành nghề</h1>
+  <p class="hero-sub">Xem song song để dễ cân nhắc hơn khi đang phân vân giữa nhiều lựa chọn.</p>
+</section>
+
+{% if items|length < 2 %}
+<p class="empty-note">
+  Cần chọn ít nhất 2 ngành để so sánh. Quay lại trang chủ, tick chọn ✓ ở góc mỗi thẻ ngành nghề bạn muốn so sánh.
+</p>
+{% else %}
+<div class="compare-grid" style="--compare-cols: {{ items|length }}">
+  {% for item in items %}
+  <div class="compare-col" style="--card-accent: {{ item.career.color }}">
+    <div class="compare-col-head">
+      <div class="career-icon-compact">{{ item.career.icon }}</div>
+      <h2>{{ item.career.name }}</h2>
+      <p>{{ item.career.tagline }}</p>
+    </div>
+
+    <div class="compare-section">
+      <h4>📈 Năng lực cần có</h4>
+      {% for s in item.skill_bars %}
+      <div class="stat-skill-row">
+        <span class="stat-skill-name">{{ s.name }}</span>
+        <div class="stat-skill-track">
+          <div class="stat-skill-fill" style="width: {{ s.pct }}%; background: {{ item.career.color }}"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if item.career.study_path %}
+    <div class="compare-section">
+      <h4>🎓 Lộ trình học tập</h4>
+      <div class="study-tags">
+        {% for block in item.career.study_path.exam_blocks %}
+        <span class="study-tag">{{ block }}</span>
+        {% endfor %}
+      </div>
+      <p class="study-value">{{ item.career.study_path.majors }}</p>
+    </div>
+    {% endif %}
+
+    {% if item.career.automation_note %}
+    {% set lvl = item.career.automation_note.level %}
+    <div class="compare-section">
+      <h4>
+        🔮 Xu hướng tương lai
+        <span class="automation-badge automation-badge-{{ lvl }}">
+          {{ {'thap': 'Ít rủi ro', 'trung_binh': 'Trung bình', 'cao': 'Cần lưu ý'}[lvl] }}
+        </span>
+      </h4>
+      <p class="market-note-text">{{ item.career.automation_note.text }}</p>
+    </div>
+    {% endif %}
+
+    {% if item.career.market_note %}
+    <div class="compare-section">
+      <h4>💰 Lương & thị trường</h4>
+      <p class="market-note-text">{{ item.career.market_note.text }}</p>
+      <a class="market-note-source" href="{{ item.career.market_note.source_url }}" target="_blank" rel="noopener">
+        Nguồn: {{ item.career.market_note.source_name }} ↗
+      </a>
+    </div>
+    {% endif %}
+
+    <a class="btn btn-primary btn-block" href="{{ url_for('career_detail', career_id=item.career.id) }}">Xem chi tiết</a>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

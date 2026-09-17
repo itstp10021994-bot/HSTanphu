@@ -1,0 +1,227 @@
+{
+  "dev": {
+    "level": "thap",
+    "text": "WEF xếp lập trình viên và chuyên gia dữ liệu vào nhóm nghề tăng trưởng nhanh nhất đến 2030, dù AI hỗ trợ viết code ngày càng nhiều.",
+    "keyword": "software developer",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "doctor": {
+    "level": "thap",
+    "text": "Khám chữa bệnh đòi hỏi khám lâm sàng trực tiếp và ra quyết định phức tạp — thuộc nhóm khó tự động hoá theo khung phân loại của WEF/McKinsey.",
+    "keyword": "health",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "chef": {
+    "level": "thap",
+    "text": "Nấu ăn đòi hỏi sự khéo léo và sáng tạo trong môi trường không cố định — thuộc nhóm khó tự động hoá theo McKinsey.",
+    "keyword": "food",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "teacher": {
+    "level": "trung_binh",
+    "text": "AI có thể hỗ trợ soạn bài, chấm điểm, nhưng việc giảng dạy và kết nối với học sinh vẫn chủ yếu cần con người.",
+    "keyword": "education",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "civil": {
+    "level": "thap",
+    "text": "WEF ghi nhận nhóm lao động xây dựng nằm trong các nghề tăng trưởng nhanh về số lượng tuyệt đối đến 2030.",
+    "keyword": "construction",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "lawyer": {
+    "level": "trung_binh",
+    "text": "WEF ghi nhận các tác vụ tra cứu pháp lý cơ bản đang chịu áp lực từ AI tạo sinh, nhưng tư vấn và tranh tụng trực tiếp vẫn cần luật sư.",
+    "keyword": "legal",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "pilot": {
+    "level": "trung_binh",
+    "text": "Máy bay đã có hệ thống lái tự động từ lâu, nhưng quy định an toàn hàng không vẫn yêu cầu phi công con người giám sát.",
+    "keyword": "transport",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "photographer": {
+    "level": "cao",
+    "text": "AI tạo ảnh (generative AI) đang ảnh hưởng rõ rệt đến các công việc thiết kế/nhiếp ảnh mang tính lặp lại, theo ghi nhận của nhiều báo cáo gần đây.",
+    "keyword": "graphic design",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "uxui": {
+    "level": "trung_binh",
+    "text": "AI tạo sinh (generative AI) đã có thể tạo bản phác thảo giao diện nhanh, nhưng tư duy trải nghiệm người dùng tổng thể vẫn cần con người quyết định.",
+    "keyword": "UX",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "nurse": {
+    "level": "thap",
+    "text": "WEF dự báo nhu cầu điều dưỡng tăng mạnh do dân số già hoá — đây là công việc chăm sóc trực tiếp con người, khó thay thế bằng máy móc.",
+    "keyword": "nursing",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "preschool": {
+    "level": "thap",
+    "text": "Chăm sóc và giáo dục trẻ nhỏ đòi hỏi tương tác cảm xúc trực tiếp — thuộc nhóm rất khó tự động hoá.",
+    "keyword": "early childhood",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "architect": {
+    "level": "trung_binh",
+    "text": "Phần mềm hỗ trợ thiết kế ngày càng mạnh, nhưng ý tưởng kiến trúc tổng thể và làm việc với khách hàng vẫn cần con người.",
+    "keyword": "architect",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "police": {
+    "level": "thap",
+    "text": "Công tác điều tra, xử lý hiện trường đòi hỏi phán đoán và hiện diện thực tế — khó tự động hoá.",
+    "keyword": "security",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "musician": {
+    "level": "trung_binh",
+    "text": "AI có thể hỗ trợ hoà âm, phối khí, nhưng sáng tác mang dấu ấn cá nhân và biểu diễn trực tiếp vẫn khó thay thế.",
+    "keyword": "creative",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "tourguide": {
+    "level": "trung_binh",
+    "text": "Ứng dụng du lịch AI có thể cung cấp thông tin cơ bản, nhưng trải nghiệm dẫn tour trực tiếp vẫn được du khách ưa chuộng.",
+    "keyword": "tourism",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "cybersecurity": {
+    "level": "thap",
+    "text": "WEF xếp các vị trí an ninh mạng vào nhóm tăng trưởng nhanh nhất, do nhu cầu bảo vệ hệ thống trước rủi ro tấn công ngày càng tinh vi.",
+    "keyword": "cybersecurity",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "pharmacist": {
+    "level": "trung_binh",
+    "text": "Việc cấp phát thuốc theo đơn có thể hỗ trợ bởi tự động hoá, nhưng tư vấn sử dụng thuốc an toàn vẫn cần dược sĩ trực tiếp.",
+    "keyword": "pharmac",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "electrical": {
+    "level": "thap",
+    "text": "Công việc lắp đặt, sửa chữa điện đòi hỏi thao tác thực tế tại hiện trường — khó tự động hoá hoàn toàn.",
+    "keyword": "electric",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "actor": {
+    "level": "trung_binh",
+    "text": "Công nghệ AI/deepfake đang phát triển nhanh, nhưng diễn xuất trực tiếp và cảm xúc thật vẫn khó tự động hoá hoàn toàn.",
+    "keyword": "creative",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "hotelmanager": {
+    "level": "trung_binh",
+    "text": "Nhiều tác vụ vận hành có thể tự động hoá (đặt phòng, check-in), nhưng quản lý con người và xử lý tình huống vẫn cần quản lý trực tiếp.",
+    "keyword": "hospitality",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "captain": {
+    "level": "trung_binh",
+    "text": "Tàu tự hành đang được thử nghiệm nhưng chưa phổ biến — vai trò thuyền trưởng vẫn cần thiết trong tương lai gần.",
+    "keyword": "transport",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "marketing": {
+    "level": "trung_binh",
+    "text": "AI tạo sinh hỗ trợ viết nội dung nhanh, nhưng xây dựng chiến lược thương hiệu và sáng tạo ý tưởng lớn vẫn cần con người.",
+    "keyword": "marketing",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "accountant": {
+    "level": "cao",
+    "text": "WEF xếp kế toán – kiểm toán vào nhóm nghề suy giảm nhanh nhất, do các tác vụ xử lý số liệu, đối chiếu chứng từ ngày càng được tự động hoá.",
+    "keyword": "accountant",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "scientist": {
+    "level": "thap",
+    "text": "Nghiên cứu khoa học đòi hỏi tư duy phản biện và sáng tạo trong thiết kế thí nghiệm — thuộc nhóm khó tự động hoá.",
+    "keyword": "researcher",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "agriculture": {
+    "level": "trung_binh",
+    "text": "Nhiều khâu canh tác được cơ giới hoá, nhưng việc chẩn đoán sâu bệnh và ra quyết định canh tác vẫn cần chuyên môn con người.",
+    "keyword": "agriculture",
+    "source_url": "https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf",
+    "source_name": "WEF Future of Jobs Report 2025",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  }
+}

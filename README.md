@@ -51,28 +51,46 @@ career-sim/
   nên không bao giờ bị lỗi do mạng chặn tài nguyên bên thứ ba (đã từng gặp
   vấn đề này ở bản dùng nhân vật 3D Three.js trước đây).
 
-## Thông tin thị trường (lương/nhu cầu) — tự động kiểm tra định kỳ
+## Dữ liệu động (lương, lộ trình học, xu hướng AI) — tự động kiểm tra hàng tuần
 
-`market_data.json` chứa thông tin lương/nhu cầu tuyển dụng tham khảo cho
-một số ngành, kèm trích dẫn nguồn. File này **tách riêng khỏi `data.py`**
-để có thể cập nhật độc lập, không cần sửa code.
+3 file JSON tách riêng khỏi `data.py`, mỗi file có thể cập nhật độc lập
+không cần sửa code:
 
-- **Tự động (GitHub Actions)**: workflow `.github/workflows/update-market-data.yml`
-  chạy vào ngày 1 mỗi tháng, gọi `scripts/update_market_data.py` để kiểm
-  tra xem các con số đã trích dẫn có còn xuất hiện trên trang nguồn không.
-  - Nếu vẫn khớp → chỉ cập nhật ngày kiểm tra gần nhất (`last_checked`).
-  - Nếu không còn khớp con số nào → đánh dấu `status: "needs_review"` và
-    trang web sẽ tự hiển thị cảnh báo ⚠️ cho đến khi ai đó xem lại và viết
-    lại câu mô tả cho đúng.
-  - **Script KHÔNG tự viết lại câu mô tả** — chỉ phát hiện thay đổi và báo
-    hiệu, để tránh rủi ro tự động hiển thị thông tin sai/bịa cho học sinh.
-  - Có thể chạy tay bất cứ lúc nào: tab **Actions** trên GitHub > chọn
-    workflow "Kiểm tra định kỳ dữ liệu thị trường lương" > **Run workflow**.
-- **Thủ công**: khi thấy cảnh báo "cần xem lại", mở file `market_data.json`
-  trên GitHub, sửa lại `text` cho đúng số liệu mới, đổi `status` về `"ok"`,
-  commit — Render sẽ tự deploy lại.
-- Thêm ngành mới vào hệ thống này: thêm 1 mục vào `market_data.json` với
-  key là `career_id`, gồm `text`, `source_name`, `source_url`.
+- `market_data.json` — lương & nhu cầu thị trường
+- `study_data.json` — khối thi & lộ trình học tập
+- `automation_data.json` — mức độ rủi ro tự động hoá (theo WEF Future of Jobs)
+
+**Tự động (GitHub Actions, chạy 02:00 UTC thứ Hai hàng tuần)**:
+`.github/workflows/update-dynamic-data.yml` gọi
+`scripts/update_dynamic_data.py`, kiểm tra CẢ 3 file bằng cách tải lại
+đúng trang nguồn và so khớp với dữ liệu đang lưu:
+
+| File | Cách kiểm tra |
+|---|---|
+| `market_data.json` | Mỗi ngành có 1 trang nguồn riêng — so khớp trực tiếp các con số lương |
+| `study_data.json` | Tất cả dùng chung 1 trang (Tuyển Sinh 247 – tổ hợp môn) — kiểm tra mã khối thi (A00, B00...) có còn trong danh sách chính thức |
+| `automation_data.json` | Tất cả dùng chung 1 nguồn (báo cáo PDF của WEF) — kiểm tra từ khoá liên quan đến ngành có còn xuất hiện trong báo cáo |
+
+- Còn khớp → chỉ cập nhật `last_checked` (ngày kiểm tra gần nhất).
+- Không còn khớp → đánh dấu `status: "needs_review"`, trang web tự hiển
+  thị cảnh báo ⚠️ "Cần xem lại" thay cho tiêu đề thẻ.
+- **Script KHÔNG tự viết lại nội dung** — chỉ phát hiện và báo hiệu, để
+  tránh rủi ro tự động hiển thị thông tin sai/bịa cho học sinh.
+- Không tải được trang (lỗi mạng...) → bỏ qua, giữ nguyên trạng thái cũ,
+  KHÔNG coi đó là dấu hiệu cần xem lại.
+- Có thể chạy tay bất cứ lúc nào: tab **Actions** trên GitHub > chọn
+  workflow "Kiểm tra định kỳ dữ liệu động..." > **Run workflow**.
+
+**Lưu ý về độ chính xác của việc kiểm tra**: `market_data.json` được kiểm
+chứng chính xác theo từng ngành (mỗi ngành 1 nguồn riêng). `study_data.json`
+và `automation_data.json` dùng chung 1 nguồn cho tất cả các ngành nên chỉ
+phát hiện được khi nguồn đó có thay đổi lớn (VD: khối thi bị bỏ hoàn toàn
+khỏi hệ thống, hoặc WEF ra báo cáo bản mới) — không phát hiện được các thay
+đổi nhỏ, cụ thể theo từng trường/ngành riêng lẻ.
+
+**Thủ công**: khi thấy cảnh báo "cần xem lại", mở đúng file JSON trên
+GitHub, sửa lại nội dung cho đúng, đổi `status` về `"ok"`, commit — Render
+sẽ tự deploy lại.
 
 ## Thêm ngành nghề / nhiệm vụ mới
 

@@ -30,6 +30,10 @@
         {% for c in cl.careers %}
         <a class="career-card-compact" href="{{ url_for('career_detail', career_id=c.id) }}"
            style="--card-accent: {{ c.color }}">
+          <label class="compare-check" title="Chọn để so sánh" onclick="event.stopPropagation()">
+            <input type="checkbox" class="compare-checkbox" data-id="{{ c.id }}" data-name="{{ c.name }}">
+            <span class="compare-check-box"></span>
+          </label>
           <div class="career-icon-compact">{{ c.icon }}</div>
           <div class="career-card-body">
             <h3>{{ c.name }}</h3>
@@ -48,6 +52,11 @@
   </div>
 </div>
 
+<div id="compare-bar" class="compare-bar" hidden>
+  <span id="compare-bar-text"></span>
+  <a id="compare-bar-btn" class="btn btn-primary" href="#">So sánh ngay →</a>
+</div>
+
 <script>
   (function () {
     const tabs = document.querySelectorAll(".cluster-tab");
@@ -59,6 +68,27 @@
         panels.forEach((p) => p.classList.toggle("active", p.dataset.cluster === target));
       });
     });
+
+    const MAX_COMPARE = 3;
+    const checkboxes = document.querySelectorAll(".compare-checkbox");
+    const bar = document.getElementById("compare-bar");
+    const barText = document.getElementById("compare-bar-text");
+    const barBtn = document.getElementById("compare-bar-btn");
+
+    function updateBar() {
+      const checked = [...checkboxes].filter((cb) => cb.checked);
+      checkboxes.forEach((cb) => {
+        if (!cb.checked) cb.disabled = checked.length >= MAX_COMPARE;
+      });
+      if (checked.length >= 2) {
+        bar.hidden = false;
+        barText.textContent = "Đã chọn: " + checked.map((cb) => cb.dataset.name).join(", ");
+        barBtn.href = "/compare?ids=" + checked.map((cb) => cb.dataset.id).join(",");
+      } else {
+        bar.hidden = true;
+      }
+    }
+    checkboxes.forEach((cb) => cb.addEventListener("change", updateBar));
   })();
 </script>
 {% endblock %}

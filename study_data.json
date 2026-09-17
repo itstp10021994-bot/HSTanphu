@@ -1,0 +1,308 @@
+{
+  "dev": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01"
+    ],
+    "majors": "Công nghệ thông tin, Khoa học máy tính, Kỹ thuật phần mềm",
+    "schools": "ĐH Bách Khoa Hà Nội/TP.HCM, ĐH Công nghệ Thông tin (UIT), ĐH FPT",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "doctor": {
+    "exam_blocks": [
+      "B00",
+      "D08"
+    ],
+    "majors": "Y khoa",
+    "schools": "ĐH Y Hà Nội, ĐH Y Dược TP.HCM, ĐH Y Dược Huế",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "chef": {
+    "exam_blocks": [
+      "Không bắt buộc khối thi ĐH — phổ biến học nghề"
+    ],
+    "majors": "Kỹ thuật chế biến món ăn, Quản trị Nhà hàng",
+    "schools": "CĐ Du lịch Hà Nội/Sài Gòn, các trường trung cấp nghề bếp",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "teacher": {
+    "exam_blocks": [
+      "Theo môn giảng dạy (VD Toán: A00; Văn: C00/D01)"
+    ],
+    "majors": "Sư phạm (theo môn)",
+    "schools": "ĐH Sư phạm Hà Nội, ĐH Sư phạm TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "civil": {
+    "exam_blocks": [
+      "A00",
+      "A01"
+    ],
+    "majors": "Kỹ thuật xây dựng",
+    "schools": "ĐH Xây dựng Hà Nội, ĐH Bách Khoa",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "lawyer": {
+    "exam_blocks": [
+      "A00",
+      "C00",
+      "D01"
+    ],
+    "majors": "Luật",
+    "schools": "ĐH Luật Hà Nội, ĐH Luật TP.HCM, Khoa Luật – ĐHQG",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "pilot": {
+    "exam_blocks": [
+      "A00",
+      "A01 (kèm khám sức khoẻ, tâm lý bay riêng biệt)"
+    ],
+    "majors": "Phi công thông qua đào tạo bay chuyên biệt sau tuyển chọn",
+    "schools": "Học viện Hàng không Việt Nam, Trung tâm Huấn luyện bay Bay Việt",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "photographer": {
+    "exam_blocks": [
+      "H00, H01 (nếu học chính quy)"
+    ],
+    "majors": "Nhiếp ảnh, Truyền thông đa phương tiện",
+    "schools": "ĐH Sân khấu Điện ảnh, ĐH Mỹ thuật; nhiều người tự học/học nghề ngắn hạn",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "uxui": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01",
+      "H00"
+    ],
+    "majors": "Thiết kế đồ hoạ, Công nghệ đa phương tiện",
+    "schools": "ĐH Kiến trúc, ĐH FPT, ĐH Hoa Sen, Arena Multimedia",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "nurse": {
+    "exam_blocks": [
+      "B00"
+    ],
+    "majors": "Điều dưỡng",
+    "schools": "ĐH Y Dược các tỉnh/thành, ĐH Điều dưỡng Nam Định",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "preschool": {
+    "exam_blocks": [
+      "M00 (kèm năng khiếu hát/kể chuyện)"
+    ],
+    "majors": "Giáo dục mầm non",
+    "schools": "ĐH Sư phạm Hà Nội, CĐ Sư phạm Trung ương",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "architect": {
+    "exam_blocks": [
+      "V00",
+      "V01",
+      "H00 (có thi năng khiếu vẽ)"
+    ],
+    "majors": "Kiến trúc",
+    "schools": "ĐH Kiến trúc Hà Nội/TP.HCM, ĐH Xây dựng",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "police": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "C03",
+      "D01 (cần sơ tuyển lý lịch, sức khoẻ riêng)"
+    ],
+    "majors": "Nghiệp vụ Cảnh sát",
+    "schools": "Học viện Cảnh sát Nhân dân, ĐH Phòng cháy chữa cháy",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "musician": {
+    "exam_blocks": [
+      "N00 (Văn + năng khiếu Âm nhạc)"
+    ],
+    "majors": "Thanh nhạc, Sáng tác âm nhạc",
+    "schools": "Học viện Âm nhạc Quốc gia VN, Nhạc viện TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "tourguide": {
+    "exam_blocks": [
+      "D01",
+      "C00"
+    ],
+    "majors": "Việt Nam học, Quản trị dịch vụ Du lịch & Lữ hành",
+    "schools": "ĐH Khoa học Xã hội & Nhân văn, ĐH Văn Lang",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "cybersecurity": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01"
+    ],
+    "majors": "An toàn thông tin, Công nghệ thông tin",
+    "schools": "Học viện Kỹ thuật Mật mã, ĐH Bách Khoa, UIT",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "pharmacist": {
+    "exam_blocks": [
+      "B00"
+    ],
+    "majors": "Dược học (cần điểm Hoá học cao)",
+    "schools": "ĐH Dược Hà Nội, ĐH Y Dược TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "electrical": {
+    "exam_blocks": [
+      "A00",
+      "A01"
+    ],
+    "majors": "Kỹ thuật điện, Kỹ thuật điện tử",
+    "schools": "ĐH Bách Khoa Hà Nội/TP.HCM, ĐH Điện lực",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "actor": {
+    "exam_blocks": [
+      "S00 (Văn + năng khiếu Sân khấu Điện ảnh)"
+    ],
+    "majors": "Diễn viên Kịch – Điện ảnh",
+    "schools": "ĐH Sân khấu Điện ảnh Hà Nội/TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "hotelmanager": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01"
+    ],
+    "majors": "Quản trị khách sạn",
+    "schools": "ĐH Kinh tế Quốc dân, ĐH Hoa Sen, Vatel Hospitality",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "captain": {
+    "exam_blocks": [
+      "A00",
+      "A01"
+    ],
+    "majors": "Điều khiển tàu biển",
+    "schools": "ĐH Hàng hải Việt Nam (Hải Phòng), ĐH Giao thông Vận tải TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "marketing": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01",
+      "C01"
+    ],
+    "majors": "Marketing, Quản trị kinh doanh",
+    "schools": "ĐH Kinh tế Quốc dân, ĐH Ngoại thương, ĐH Kinh tế TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "accountant": {
+    "exam_blocks": [
+      "A00",
+      "A01",
+      "D01",
+      "C01"
+    ],
+    "majors": "Kế toán, Kiểm toán",
+    "schools": "Học viện Tài chính, ĐH Kinh tế Quốc dân",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "scientist": {
+    "exam_blocks": [
+      "A00",
+      "B00 (tuỳ chuyên ngành nghiên cứu)"
+    ],
+    "majors": "Hoá học, Sinh học, Vật lý... (tuỳ lĩnh vực)",
+    "schools": "ĐH Khoa học Tự nhiên (ĐHQG Hà Nội/TP.HCM)",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  },
+  "agriculture": {
+    "exam_blocks": [
+      "A00",
+      "A16",
+      "B00"
+    ],
+    "majors": "Nông nghiệp, Khoa học cây trồng",
+    "schools": "Học viện Nông nghiệp Việt Nam, ĐH Nông Lâm TP.HCM",
+    "source_url": "https://diemthi.tuyensinh247.com/to-hop-mon.html",
+    "source_name": "Tuyển Sinh 247 — Tổ hợp môn xét tuyển",
+    "last_checked": "2026-09-15",
+    "status": "ok"
+  }
+}

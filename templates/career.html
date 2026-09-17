@@ -45,6 +45,63 @@
       {% endfor %}
     </div>
 
+    {% if career.study_path %}
+    <div class="stat-card{{ ' stat-card-stale' if career.study_path.status == 'needs_review' else '' }}">
+      <h3 class="stat-card-title">
+        {{ '⚠️ Cần xem lại' if career.study_path.status == 'needs_review' else '🎓 Lộ trình học tập' }}
+      </h3>
+      <div class="study-row">
+        <span class="study-label">Khối thi</span>
+        <div class="study-tags">
+          {% for block in career.study_path.exam_blocks %}
+          <span class="study-tag">{{ block }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="study-row">
+        <span class="study-label">Ngành liên quan</span>
+        <p class="study-value">{{ career.study_path.majors }}</p>
+      </div>
+      <div class="study-row">
+        <span class="study-label">Trường tham khảo</span>
+        <p class="study-value">{{ career.study_path.schools }}</p>
+      </div>
+      {% if career.study_path.status == 'needs_review' %}
+      <p class="market-note-warning">Hệ thống phát hiện danh sách tổ hợp môn có thể đã thay đổi — thông tin đang chờ người kiểm duyệt xác nhận lại.</p>
+      {% endif %}
+      {% if career.study_path.last_checked %}
+      <p class="market-note-disclaimer">Kiểm tra lần cuối: {{ career.study_path.last_checked }}.</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if career.automation_note %}
+    {% set lvl = career.automation_note.level %}
+    <div class="stat-card automation-card automation-{{ lvl }}{{ ' stat-card-stale' if career.automation_note.status == 'needs_review' else '' }}">
+      <h3 class="stat-card-title">
+        {% if career.automation_note.status == 'needs_review' %}
+          ⚠️ Cần xem lại
+        {% else %}
+          🔮 Xu hướng tương lai
+          <span class="automation-badge automation-badge-{{ lvl }}">
+            {{ {'thap': 'Ít rủi ro', 'trung_binh': 'Trung bình', 'cao': 'Cần lưu ý'}[lvl] }}
+          </span>
+        {% endif %}
+      </h3>
+      <p class="market-note-text">{{ career.automation_note.text }}</p>
+      <a class="market-note-source" href="{{ career.automation_note.source_url }}" target="_blank" rel="noopener">
+        Nguồn: {{ career.automation_note.source_name }} ↗
+      </a>
+      {% if career.automation_note.status == 'needs_review' %}
+      <p class="market-note-warning">Hệ thống không còn thấy từ khoá liên quan trong báo cáo — có thể đã có bản báo cáo mới, đang chờ người kiểm duyệt xác nhận lại.</p>
+      {% endif %}
+      <p class="market-note-disclaimer">
+        Đây là xu hướng chung mang tính tham khảo, không phải dự đoán chắc chắn cho riêng bạn.
+        {% if career.automation_note.last_checked %}Kiểm tra lần cuối: {{ career.automation_note.last_checked }}.{% endif %}
+      </p>
+    </div>
+    {% endif %}
+
     {% if career.market_note %}
     <div class="stat-card{{ ' stat-card-stale' if career.market_note.status == 'needs_review' else '' }}">
       <h3 class="stat-card-title">
