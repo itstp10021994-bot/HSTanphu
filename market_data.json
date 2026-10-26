@@ -3,21 +3,21 @@
     "text": "Công nghệ thông tin được dự báo là nhóm ngành tăng lương mạnh nhất năm 2026 (khoảng 15–20%) và vẫn thuộc nhóm nhu cầu tuyển dụng cao.",
     "source_name": "NIC Global — Báo cáo Lương Việt Nam 2026",
     "source_url": "https://nicvn.com/vi/bao-cao-luong-viet-nam-2026-toan-canh-thi-truong-nhan-su",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "doctor": {
     "text": "Bác sĩ làm việc tại cơ sở y tế tư nhân có thu nhập phổ biến khoảng 15–40 triệu đồng/tháng, có thể cao hơn nhiều với bác sĩ chuyên khoa giàu kinh nghiệm.",
     "source_name": "Ngon Career — Tổng hợp lương ngành y tế",
     "source_url": "https://ngoncareer.com/muc-luong/luong-y-te-moi-nhat/",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "teacher": {
     "text": "Theo bảng lương viên chức hiện hành, thu nhập giáo viên dao động khoảng 4,9–16 triệu đồng/tháng tuỳ bậc và thâm niên (chưa gồm phụ cấp).",
     "source_name": "Báo Đầu Tư",
     "source_url": "https://baodautu.vn/muc-luong-giao-vien-nam-2025-duoc-quy-dinh-ra-sao-d242044.html",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "needs_review"
   },
   "civil": {
@@ -31,14 +31,14 @@
     "text": "Luật sư mới hành nghề thường khởi điểm 10–15 triệu đồng/tháng; sau khoảng 5 năm kinh nghiệm, thu nhập có thể đạt 25–50 triệu đồng/tháng.",
     "source_name": "JobOKO",
     "source_url": "https://vn.joboko.com/blog/luong-cua-luat-su-bao-nhieu-tien-1-thang-nwi3653",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "nurse": {
     "text": "Điều dưỡng mới ra trường thường khởi điểm khoảng 4,3–5,5 triệu đồng/tháng ở khu vực nhà nước, hoặc 8–20 triệu đồng/tháng nếu làm tại bệnh viện tư nhân.",
     "source_name": "Dịch Vụ Y Dược",
     "source_url": "https://dichvuyduoc.net/muc-luong-cua-dieu-duong-la-bao-nhieu/",
-    "last_checked": "2026-09-13",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "tourguide": {
@@ -52,7 +52,7 @@
     "text": "Kế toán – tài chính – kiểm toán là một trong các nhóm ngành được dự báo tăng lương mạnh (khoảng 8–10%) trong năm 2026.",
     "source_name": "NIC Global — Báo cáo Lương Việt Nam 2026",
     "source_url": "https://nicvn.com/vi/bao-cao-luong-viet-nam-2026-toan-canh-thi-truong-nhan-su",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "uxui": {
@@ -66,14 +66,14 @@
     "text": "Chuyên viên an ninh mạng mới vào nghề (1–3 năm) thường nhận khoảng 15–25 triệu đồng/tháng; ở cấp chuyên gia cao cấp có thể đạt 45–70 triệu đồng/tháng.",
     "source_name": "CareerLink",
     "source_url": "https://www.careerlink.vn/cam-nang-viec-lam/tu-van-nghe-nghiep/co-hoi-viec-lam-nganh-an-ninh-mang",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "pharmacist": {
     "text": "Theo bảng lương viên chức, dược sĩ mới ra trường khởi điểm khoảng 5–7 triệu đồng/tháng; dược sĩ đại học có thể đạt 30–40 triệu đồng/tháng tuỳ đơn vị công tác.",
     "source_name": "Trường Cao đẳng Y Dược TP.HCM",
     "source_url": "https://caodangyduochochiminh.vn/cao-dang-duoc/luong-duoc-si-c339751.html",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "electrical": {
@@ -94,56 +94,56 @@
     "text": "Theo bảng lương lực lượng công an nhân dân, thu nhập cơ bản dao động khoảng 9–18 triệu đồng/tháng tuỳ cấp bậc quân hàm (chưa gồm phụ cấp đặc thù ngành).",
     "source_name": "Báo Tuổi Trẻ",
     "source_url": "https://tuoitre.vn/nld/chi-tiet-bang-luong-cong-an-neu-luong-co-so-tang-8-tu-1-7-2026-196260312121215338.htm",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "needs_review"
   },
   "actor": {
     "text": "Diễn viên mới vào nghề thường nhận lương net khoảng 7,5–15,3 triệu đồng/tháng; sau khoảng 5 năm kinh nghiệm có thể đạt 11,4–28,5 triệu đồng/tháng.",
     "source_name": "WageIndicator.org",
     "source_url": "https://wageindicator.org/vi-vn/cong-viec-tai-viet-nam/viec-lam-va-luong/dien-vien",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "needs_review"
   },
   "musician": {
     "text": "Nhạc sĩ, ca sĩ và người sáng tác mới vào nghề thường nhận lương net khoảng 7,5–15,3 triệu đồng/tháng; sau khoảng 5 năm có thể đạt 11,4–28,5 triệu đồng/tháng.",
     "source_name": "WageIndicator.org",
     "source_url": "https://wageindicator.org/vi-vn/cong-viec-tai-viet-nam/viec-lam-va-luong/nhac-si-ca-si-va-nguoi-sang-tac/",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "needs_review"
   },
   "chef": {
     "text": "Đầu bếp mới vào nghề thường nhận khoảng 8–10 triệu đồng/tháng, có thể tăng lên 15–20 triệu đồng/tháng tại các nhà hàng lớn.",
     "source_name": "JobOKO",
     "source_url": "https://vn.joboko.com/blog/luong-cua-dau-bep-nwi4270",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "hotelmanager": {
     "text": "Nhân sự mới vào nghề quản trị khách sạn thường khởi điểm khoảng 7–12 triệu đồng/tháng; ở vị trí Tổng quản lý cấp cao có thể đạt 50–120 triệu đồng/tháng.",
     "source_name": "CareerLink",
     "source_url": "https://www.careerlink.vn/cam-nang-viec-lam/tu-van-nghe-nghiep/nganh-quan-tri-khach-san-la-gi-ra-truong-lam-gi",
-    "last_checked": "2026-10-19",
-    "status": "needs_review"
+    "last_checked": "2026-10-26",
+    "status": "ok"
   },
   "pilot": {
     "text": "Theo báo cáo của Vietnam Airlines, tiền lương bình quân của phi công người Việt giai đoạn 2023–2025 khoảng 115,6–134,8 triệu đồng/tháng.",
     "source_name": "Báo Dân Việt",
     "source_url": "https://thegioitiepthi.danviet.vn/luong-phi-cong-viet-nam-lam-viec-o-vietnam-airlines-se-tang-len-bao-nhieu-2023060608543629-d6490.html",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "captain": {
     "text": "Thuyền viên cấp thấp tại Việt Nam thường nhận khoảng 10–13 triệu đồng/tháng; ở vị trí thuyền trưởng có thể đạt khoảng 70–80 triệu đồng/tháng.",
     "source_name": "Ai Hay",
     "source_url": "https://ai-hay.vn/luong-thuy-thu-bao-nhieu-pN1UmIwXJFK",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "marketing": {
     "text": "Theo Báo cáo thị trường 2025 của JobOKO, nhân sự marketing dưới 1 năm kinh nghiệm nhận khoảng 6,5–10 triệu đồng/tháng, tăng lên 14,5–18 triệu đồng/tháng sau hơn 3 năm.",
     "source_name": "JobOKO — Báo cáo thị trường 2025",
     "source_url": "https://job.isvnu.vn/nganh-marketing-luong-bao-nhieu-news776690734572",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   },
   "agriculture": {
@@ -164,7 +164,7 @@
     "text": "Một số vị trí nhiếp ảnh gia thương mại đăng tuyển với mức lương phổ biến khoảng 12–15 triệu đồng/tháng.",
     "source_name": "JobOKO",
     "source_url": "https://vn.joboko.com/viec-lam-photographer-xvi5796234",
-    "last_checked": "2026-10-19",
+    "last_checked": "2026-10-26",
     "status": "ok"
   }
 }
